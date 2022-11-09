@@ -1,0 +1,16 @@
+.header__border {
+  border-bottom: 1px solid #545454;
+  margin-top: 41px;
+}
+
+@media screen and (max-width: 968px) {
+  .header__border {
+    margin-top: 36.3px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .header__border {
+    margin-top: 31.6px;
+  }
+}
