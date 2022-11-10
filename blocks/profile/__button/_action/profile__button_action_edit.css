@@ -1,0 +1,15 @@
+.profile__button_action_edit {
+  width: 24px;
+  height: 24px;
+}
+
+
+@media screen and (max-width:420px) {
+  .profile__button_action_edit {
+    width: 18px;
+    height: 18px;
+  }
+}
+.profile__button_action_edit::before {
+  content: url(../../../../images/ui/edit.svg);
+}

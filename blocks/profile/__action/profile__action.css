@@ -1,0 +1,12 @@
+.profile__action {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+@media screen and (max-width:568px) {
+  .profile__action {
+    margin-top: 10px;
+  }
+}

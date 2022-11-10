@@ -6,16 +6,35 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./pages/index.css"/>
+  <link rel="stylesheet" href="./pages/index.css" />
 </head>
 
 <body class="page">
-
   <header class="header page__header">
-    <img src="./images/logo/header__logo.svg" alt="Логотип `Mesto Russia`" class="header__logo"/>
+    <img src="./images/logo/header__logo.svg" alt="Логотип `Mesto Russia`" class="header__logo" />
     <div class="header__border"></div>
   </header>
+  <main class="content">
+    <section class="profile content__profile">
 
+      <div class="profile__avatar avatar avatar_type_cricle">
+        <img src="./images/profile/avatar.jpg" alt="Аватар" class="avatar__img">
+      </div>
+
+      <div class="profile__info">
+        <div class="profile__head">
+          <h1 class="profile__username">Жак-Ив Кусто</h1>
+          <button class="profile__button profile__button_action_edit profile__button_margin_bottom"></button>
+        </div>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+
+      <div class="profile__action">
+        <button class="profile__button profile__button_action_add"></button>
+      </div>
+
+    </section>
+  </main>
 </body>
 
 </html>
