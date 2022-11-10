@@ -1,6 +1,9 @@
 .profile__button_action_edit {
   width: 24px;
   height: 24px;
+  background-image:  url(../../../../images/ui/edit.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
 }
 
 
@@ -9,7 +12,4 @@
     width: 18px;
     height: 18px;
   }
-}
-.profile__button_action_edit::before {
-  content: url(../../../../images/ui/edit.svg);
 }

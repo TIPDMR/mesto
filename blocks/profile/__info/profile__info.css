@@ -4,8 +4,10 @@
   justify-content: center;
   gap: 10px;
 }
-@media screen and (max-width:568px) {
+@media screen and (max-width:560px) {
   .profile__info {
     align-items: center;
+    width: 100%;
+
   }
 }
