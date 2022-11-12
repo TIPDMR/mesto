@@ -17,6 +17,7 @@
 @import url(../blocks/content/content.css);
 @import url(../blocks/content/__profile/content__profile.css);
 @import url(../blocks/content/__photo-gallery/content__photo-gallery.css);
+@import url(../blocks/content/__footer/content__footer.css);
 
 /*Avatar*/
 @import url(../blocks/avatar/avatar.css);
@@ -46,5 +47,9 @@
 @import url(../blocks/photo-gallery/__button/_action/gallery__button_action_like.css);
 @import url(../blocks/photo-gallery/__button/_state/photo-gallery__button_type_active.css);
 @import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
+
+/*Footer*/
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copy/footer__copy.css);
 /*MIX*/
 @import url(../blocks/link/link.css);
