@@ -7,7 +7,8 @@
 }
 
 
-@media screen and (max-width:420px) {
+
+@media screen and (max-width:575px) {
   .profile__button_action_edit {
     width: 18px;
     height: 18px;

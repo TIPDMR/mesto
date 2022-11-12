@@ -5,36 +5,102 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./pages/index.css" />
+  <title>Уникальные места Хакасии и Красноярского Края</title>
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
 
 <body class="page">
+
   <header class="header page__header">
-    <img src="./images/logo/header__logo.svg" alt="Логотип `Mesto Russia`" class="header__logo" />
+    <img src="./images/logo/header__logo.svg" alt="Логотип `Mesto Russia`" class="header__logo">
     <div class="header__border"></div>
   </header>
-  <main class="content">
-    <section class="profile content__profile">
 
-      <div class="profile__avatar avatar avatar_type_cricle">
+  <main class="content page__content">
+
+    <section class="profile content__profile">
+      <div class="avatar avatar_type_cricle">
         <img src="./images/profile/avatar.jpg" alt="Аватар" class="avatar__img">
       </div>
 
       <div class="profile__info">
         <div class="profile__head">
           <h1 class="profile__username">Жак-Ив Кусто</h1>
-          <button class="profile__button profile__button_action_edit profile__button_margin_bottom"></button>
+          <button class="profile__button profile__button_action_edit profile__button_margin_bottom link"></button>
         </div>
         <p class="profile__description">Исследователь океана</p>
       </div>
 
       <div class="profile__action">
-        <button class="profile__button profile__button_action_add"></button>
+        <button class="profile__button profile__button_action_add link"></button>
       </div>
+    </section>
+
+    <section class="photo-gallery content__photo-gallery" aria-label="Фото Галерея">
+      <ul class="photo-gallery__items">
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/sayano-shushenskaya-hpp.jpg" alt="Карачаевск">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Карачаевск</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/gora-elbrus.jpg" alt="Гора Эльбрус">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Гора Эльбрус</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/dombai.jpg" alt="Домбай">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Домбай</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/gora-elbrus.jpg" alt="Гора Эльбрус">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Гора Эльбрус</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/dombai-2.jpg" alt="Домбай">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Домбай</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure class="photo-gallery__figure">
+            <img class="photo-gallery__image" src="./images/photo-gallery/karachevo-cherkeskiy.jpg"
+              alt="Карачаево-Черкесия">
+            <figcaption class="photo-gallery__figcaption">
+              <h2 class="photo-gallery__title">Карачаево-Черкесия</h2>
+              <button class="photo-gallery__button photo-gallery__button_action_like photo-gallery__button_state_active link"></button>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+
 
     </section>
+
+
   </main>
+
 </body>
 
 </html>

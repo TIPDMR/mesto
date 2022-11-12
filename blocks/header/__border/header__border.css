@@ -4,13 +4,7 @@
   opacity: 0.7;
 }
 
-@media screen and (max-width: 968px) {
-  .header__border {
-    margin-top: 36.3px;
-  }
-}
-
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 575px) {
   .header__border {
     margin-top: 31.6px;
   }

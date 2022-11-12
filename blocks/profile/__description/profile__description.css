@@ -1,11 +1,12 @@
 .profile__description {
   margin: 0;
-  font-size: 1.125rem;
-  line-height: 1.210;
+  font-size: 18px;
+  line-height: 22px;
   font-weight: 400;
 }
 
-@media screen and (max-width:420px) {
+
+@media screen and (max-width:575px) {
   .profile__description {
     font-size: 14px;
     line-height: 17px;

@@ -1,21 +1,13 @@
-.page__header {
-  margin: 0 200px;
-}
-
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 918px) {
   .page__header {
-    margin: 0 120px;
+    padding: 0 19px;
   }
 }
 
-@media screen and (max-width: 968px) {
-  .page__header {
-    margin: 0 40px;
-  }
-}
 
-@media screen and (max-width:568px) {
+
+@media screen and (max-width:575px) {
   .page__header {
-    margin: 0;
+    padding: 0;
   }
 }

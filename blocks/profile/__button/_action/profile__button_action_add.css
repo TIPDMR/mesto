@@ -4,9 +4,17 @@
   background-image: url(../../../../images/ui/add.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
+  border: 2px solid white;
+  border-radius: 2px;
 }
 @media screen and (max-width:768px) {
   .profile__button_action_add {
-    width: 100%;
+    width: 282px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .profile__button_action_add {
+    background-size: 16px;
   }
 }

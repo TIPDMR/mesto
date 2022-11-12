@@ -1,0 +1,5 @@
+.photo-gallery__button {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}

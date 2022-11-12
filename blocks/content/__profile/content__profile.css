@@ -1,21 +1,6 @@
-.content__profile {
-  margin: 40px 200px 0;
-}
 
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 918px) {
   .content__profile {
-    margin: 40px 120px 0;
-  }
-}
-
-@media screen and (max-width: 968px) {
-  .content__profile {
-    margin: 40px 40px 0;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .content__profile {
-    margin: 42px 19px 0;
+    margin: 0 19px;
   }
 }

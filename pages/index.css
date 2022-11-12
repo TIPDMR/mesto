@@ -5,6 +5,7 @@
 /*Page*/
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__header/page__header.css);
+@import url(../blocks/page/__content/page__content.css);
 @import url(../blocks/page/__footer/page__footer.css);
 
 /*Header*/
@@ -15,14 +16,19 @@
 /*Content*/
 @import url(../blocks/content/content.css);
 @import url(../blocks/content/__profile/content__profile.css);
+@import url(../blocks/content/__photo-gallery/content__photo-gallery.css);
+
+/*Avatar*/
+@import url(../blocks/avatar/avatar.css);
+@import url(../blocks/avatar/_type/avatar_type_cricle.css);
+@import url(../blocks/avatar/__img/avatar__img.css);
 
 /*Profile*/
 @import url(../blocks/profile/profile.css);
-@import url(../blocks/profile/__avatar/profile__avatar.css);
-@import url(../blocks/profile/__info/profile__info.css);
 @import url(../blocks/profile/__username/profile__username.css);
 @import url(../blocks/profile/__description/profile__description.css);
-@import url(../blocks/profile/__head/profile__head.css);
+@import url(../blocks/profile/__info/profile__info.css);
+@import url(../blocks/profile/__wrapper/profile__wrapper.css);
 @import url(../blocks/profile/__action/profile__action.css);
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__button/_action/profile__button_action_add.css);
@@ -30,8 +36,15 @@
 @import url(../blocks/profile/__button/_margin/profile__button_margin_bottom.css);
 
 
-
-/*Avatar*/
-@import url(../blocks/avatar/avatar.css);
-@import url(../blocks/avatar/_type/avatar_type_cricle.css);
-@import url(../blocks/avatar/__img/avatar__img.css);
+/*Photo Gallery*/
+@import url(../blocks/photo-gallery/photo-gallery.css);
+@import url(../blocks/photo-gallery/__items/photo-gallery__items.css);
+@import url(../blocks/photo-gallery/__image/photo-gallery__image.css);
+@import url(../blocks/photo-gallery/__figure/photo-gallery__figure.css);
+@import url(../blocks/photo-gallery/__figcaption/photo-gallery__figcaption.css);
+@import url(../blocks/photo-gallery/__button/photo-gallery__button.css);
+@import url(../blocks/photo-gallery/__button/_action/gallery__button_action_like.css);
+@import url(../blocks/photo-gallery/__button/_state/photo-gallery__button_type_active.css);
+@import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
+/*MIX*/
+@import url(../blocks/link/link.css);
