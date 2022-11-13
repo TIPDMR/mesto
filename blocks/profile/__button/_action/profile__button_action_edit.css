@@ -1,6 +1,6 @@
 .profile__button_action_edit {
-  width: 24px;
-  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
   background-image:  url(../../../../images/ui/edit.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
@@ -10,7 +10,7 @@
 
 @media screen and (max-width:575px) {
   .profile__button_action_edit {
-    width: 18px;
-    height: 18px;
+    min-width: 18px;
+    min-height: 18px;
   }
 }

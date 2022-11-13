@@ -1,0 +1,19 @@
+.modal_visible {
+  display: flex;
+  opacity: 1;
+  transition: opacity .15s linear;
+  pointer-events: all;
+}
+
+.modal_visible::after {
+  content: '';
+  background: #000;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  z-index: 1;
+
+}

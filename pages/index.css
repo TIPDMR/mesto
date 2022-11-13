@@ -48,6 +48,23 @@
 @import url(../blocks/photo-gallery/__button/_state/photo-gallery__button_type_active.css);
 @import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
 
+/*Modal*/
+
+@import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/_visible/modal_visible.css);
+@import url(../blocks/modal/__container/modal__container.css);
+@import url(../blocks/modal/__button/modal__button.css);
+@import url(../blocks/modal/__button/_close/modal__button_close.css);
+@import url(../blocks/modal/__button/_save/modal__button_save.css);
+@import url(../blocks/modal/__content/modal__content.css);
+@import url(../blocks/modal/__header/modal__header.css);
+@import url(../blocks/modal/__title/modal__title.css);
+@import url(../blocks/modal/__body/modal__body.css);
+@import url(../blocks/modal/__text/modal__text.css);
+@import url(../blocks/modal/__footer/modal__footer.css);
+@import url(../blocks/modal/__input/modal__input.css);
+
+
 /*Footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);

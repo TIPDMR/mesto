@@ -22,17 +22,16 @@
       <div class="avatar avatar_type_cricle">
         <img src="./images/profile/avatar.jpg" alt="Аватар" class="avatar__img">
       </div>
-
       <div class="profile__info">
         <div class="profile__head">
           <h1 class="profile__username">Жак-Ив Кусто</h1>
-          <button class="profile__button profile__button_action_edit profile__button_margin_bottom link"></button>
+          <button type="button"
+            class="profile__button profile__button_action_edit profile__button_margin_bottom link"></button>
         </div>
         <p class="profile__description">Исследователь океана</p>
       </div>
-
       <div class="profile__action">
-        <button class="profile__button profile__button_action_add link"></button>
+        <button type="button" class="profile__button profile__button_action_add link"></button>
       </div>
     </section>
 
@@ -43,7 +42,7 @@
             <img class="photo-gallery__image" src="./images/photo-gallery/sayano-shushenskaya-hpp.jpg" alt="Карачаевск">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Карачаевск</h2>
-              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+              <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
             </figcaption>
           </figure>
         </li>
@@ -52,7 +51,7 @@
             <img class="photo-gallery__image" src="./images/photo-gallery/gora-elbrus.jpg" alt="Гора Эльбрус">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Гора Эльбрус</h2>
-              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+              <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
             </figcaption>
           </figure>
         </li>
@@ -61,7 +60,7 @@
             <img class="photo-gallery__image" src="./images/photo-gallery/dombai.jpg" alt="Домбай">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Домбай</h2>
-              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+              <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
             </figcaption>
           </figure>
         </li>
@@ -70,7 +69,7 @@
             <img class="photo-gallery__image" src="./images/photo-gallery/gora-elbrus.jpg" alt="Гора Эльбрус">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Гора Эльбрус</h2>
-              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+              <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
             </figcaption>
           </figure>
         </li>
@@ -79,7 +78,7 @@
             <img class="photo-gallery__image" src="./images/photo-gallery/dombai-2.jpg" alt="Домбай">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Домбай</h2>
-              <button class="photo-gallery__button photo-gallery__button_action_like link"></button>
+              <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
             </figcaption>
           </figure>
         </li>
@@ -89,23 +88,37 @@
               alt="Карачаево-Черкесия">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Карачаево-Черкесия</h2>
-              <button
+              <button type="button"
                 class="photo-gallery__button photo-gallery__button_action_like photo-gallery__button_state_active link"></button>
             </figcaption>
           </figure>
         </li>
       </ul>
-
-
     </section>
 
-
-    <footer class="footer content__footer">
-      <p class="footer__copy">© 2020 Mesto Russia</p>
-    </footer>
-    
+    <section class="modal" tabindex="-1" role="dialog">
+      <div class="modal__container" role="document">
+        <button class="modal__button modal__button_close link"></button>
+        <div class="modal__content">
+          <div class="modal__header">
+            <h2 class="modal__title">Редактировать профиль</h2>
+          </div>
+          <div class="modal__body">
+            <input class="modal__input" type="text" name="username" id="username">
+            <input class="modal__input" type="text" name="description" id="description">
+          </div>
+          <div class="modal__footer">
+            <button type="button" class="modal__button modal__button_save link">Сохранить</button>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <footer class="footer content__footer">
+    <p class="footer__copy">© 2020 Mesto Russia</p>
+  </footer>
+  <script src="./scripts/index.js"></script>
 </body>
 
 </html>
