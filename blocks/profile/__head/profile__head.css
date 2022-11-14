@@ -3,10 +3,12 @@
   align-items: end;
   column-gap: 18px;
 
+  width: 100%;
 }
+
 @media screen and (max-width:575px) {
   .profile__head {
     column-gap: 10px;
-    margin-right: -28px;
+    max-width: 282px;
   }
 }

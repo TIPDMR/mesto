@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
   let buttonAddModal = document.querySelector('.profile__button_action_edit');
-  let username = document.querySelector('.profile__username');
+  let username = document.querySelector('.profile__title');
   let description = document.querySelector('.profile__description');
 
   let modalBlock = document.querySelector('.modal');
