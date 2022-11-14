@@ -1,5 +1,9 @@
-./.vscode/*
+.vscode/*
 .editorconfig
 .git/*
 ./doc/*
-./.idea/*
+.idea/*
+.idea/.gitignore
+.idea/mesto.iml
+.idea/modules.xml
+.idea/vcs.xml

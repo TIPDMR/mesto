@@ -35,7 +35,6 @@
 @import url(../blocks/profile/__button/_action/profile__button_action_edit.css);
 @import url(../blocks/profile/__button/_margin/profile__button_margin_bottom.css);
 
-
 /*Photo Gallery*/
 @import url(../blocks/photo-gallery/photo-gallery.css);
 @import url(../blocks/photo-gallery/__items/photo-gallery__items.css);
@@ -48,7 +47,6 @@
 @import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
 
 /*Modal*/
-
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/_visible/modal_visible.css);
 @import url(../blocks/modal/__container/modal__container.css);
@@ -64,9 +62,9 @@
 @import url(../blocks/modal/__input/_title/modal__input_title.css);
 @import url(../blocks/modal/__input/_description/modal__input_description.css);
 
-
 /*Footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);
+
 /*MIX*/
 @import url(../blocks/link/link.css);
