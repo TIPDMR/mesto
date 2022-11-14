@@ -1,8 +1,0 @@
-.content__footer{
-  padding: 67px 0 0;
-}
-@media screen and (max-width: 918px) {
-  .content__footer{
-    padding: 48px 19px 0;
-  }
-}

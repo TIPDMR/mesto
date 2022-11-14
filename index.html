@@ -40,7 +40,8 @@
       <ul class="photo-gallery__items">
         <li>
           <figure class="photo-gallery__figure">
-            <img class="photo-gallery__image" src="./images/photo-gallery/sayano-shushenskaya-hpp.jpg" alt="Саяно-Шушенская ГЭС">
+            <img class="photo-gallery__image" src="./images/photo-gallery/sayano-shushenskaya-hpp.jpg"
+              alt="Саяно-Шушенская ГЭС">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Саяно-Шушенская ГЭС</h2>
               <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
@@ -49,7 +50,8 @@
         </li>
         <li>
           <figure class="photo-gallery__figure">
-            <img class="photo-gallery__image" src="./images/photo-gallery/gladenkay.jpg" alt="Гладенькая Горноложный Курорт">
+            <img class="photo-gallery__image" src="./images/photo-gallery/gladenkay.jpg"
+              alt="Гладенькая Горноложный Курорт">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Гладенькая Горноложный Курорт</h2>
               <button type="button" class="photo-gallery__button photo-gallery__button_action_like link"></button>
@@ -85,8 +87,7 @@
         </li>
         <li>
           <figure class="photo-gallery__figure">
-            <img class="photo-gallery__image" src="./images/photo-gallery/tuimskiy-proval.jpg"
-              alt="Туимский провал">
+            <img class="photo-gallery__image" src="./images/photo-gallery/tuimskiy-proval.jpg" alt="Туимский провал">
             <figcaption class="photo-gallery__figcaption">
               <h2 class="photo-gallery__title">Туимский провал</h2>
               <button type="button"
@@ -106,19 +107,20 @@
           </div>
 
           <div class="modal__body">
-            <input class="modal__input" type="text" name="username" id="username">
-            <input class="modal__input" type="text" name="description" id="description">
+            <form class="modal__form" action="#">
+              <input class="modal__input modal__input_title" type="text" name="title" id="title">
+              <input class="modal__input modal__input_description" type="text" name="description" id="description">
+              <button type="submit" class="modal__button modal__button_save link">Сохранить</button>
+            </form>
           </div>
-          <div class="modal__footer">
-            <button type="button" class="modal__button modal__button_save link">Сохранить</button>
-          </div>
+
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer content__footer">
-    <p class="footer__copy">© 2020 Mesto Russia</p>
+  <footer class="footer page__footer">
+    <p class="footer__copy">© 2022 Республика Хакасия</p>
   </footer>
   <script src="./scripts/index.js"></script>
 </body>

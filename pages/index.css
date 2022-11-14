@@ -17,7 +17,6 @@
 @import url(../blocks/content/content.css);
 @import url(../blocks/content/__profile/content__profile.css);
 @import url(../blocks/content/__photo-gallery/content__photo-gallery.css);
-@import url(../blocks/content/__footer/content__footer.css);
 
 /*Avatar*/
 @import url(../blocks/avatar/avatar.css);
@@ -60,9 +59,10 @@
 @import url(../blocks/modal/__header/modal__header.css);
 @import url(../blocks/modal/__title/modal__title.css);
 @import url(../blocks/modal/__body/modal__body.css);
-@import url(../blocks/modal/__text/modal__text.css);
-@import url(../blocks/modal/__footer/modal__footer.css);
+@import url(../blocks/modal/__form/modal__form.css);
 @import url(../blocks/modal/__input/modal__input.css);
+@import url(../blocks/modal/__input/_title/modal__input_title.css);
+@import url(../blocks/modal/__input/_description/modal__input_description.css);
 
 
 /*Footer*/

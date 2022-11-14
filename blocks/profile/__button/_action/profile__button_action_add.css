@@ -7,6 +7,7 @@
   border: 2px solid white;
   border-radius: 2px;
 }
+
 @media screen and (max-width:768px) {
   .profile__button_action_add {
     width: 282px;

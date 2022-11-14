@@ -1,7 +1,7 @@
 .profile__button_action_edit {
   min-width: 24px;
   min-height: 24px;
-  background-image:  url(../../../../images/ui/edit.svg);
+  background-image: url(../../../../images/ui/edit.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
