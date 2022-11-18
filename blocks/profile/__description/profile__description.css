@@ -6,12 +6,20 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  width: 100%;
+  grid-area: description;
 }
 
 
-@media screen and (max-width:575px) {
+@media screen and (max-width: 575px) {
   .profile__description {
     font-size: 14px;
     line-height: 17px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .profile__description {
+    text-align: center;
   }
 }
