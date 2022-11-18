@@ -1,22 +1,22 @@
-.modal__button_close {
+.modal__button_action_close {
   width: 32px;
   height: 32px;
   background-image: url(../../../../images/ui/close.svg);
   background-repeat: no-repeat;
   background-position: 50% 50%;
-  border: 0;
   background-color: transparent;
-  padding: 0;
   position: absolute;
   top: -40px;
   right: -40px;
+  background-size: cover;
+  transition: .3s linear;
 }
-
-@media screen and (max-width:575px) {
-  .modal__button_close {
+.modal__button_action_close:hover {
+  opacity: .6;
+}
+@media screen and (max-width: 575px) {
+  .modal__button_action_close {
     width: 20px;
     height: 20px;
-    top: -36px;
-    right: 19px;
   }
 }
