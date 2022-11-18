@@ -9,11 +9,12 @@
   "description description";
   align-items: self-end;
   margin-right: auto;
-
+  max-width: 550px;
 }
 
 @media screen and (max-width: 768px) {
   .profile__info {
+    max-width: 282px;
     column-gap: 10px;
     row-gap: 8px;
     margin-right: 0;

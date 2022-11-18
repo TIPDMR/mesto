@@ -6,11 +6,12 @@
   gap: 30px;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
+
 }
 
 @media screen and (max-width: 768px) {
   .profile {
+      flex-wrap: wrap;
     justify-content: center;
   }
 }
