@@ -11,25 +11,20 @@
 /*Header*/
 @import url(../blocks/header/header.css);
 @import url(../blocks/header/__logo/header__logo.css);
-@import url(../blocks/header/__border/header__border.css);
 
 /*Content*/
 @import url(../blocks/content/content.css);
 @import url(../blocks/content/__profile/content__profile.css);
 @import url(../blocks/content/__photo-gallery/content__photo-gallery.css);
 
-/*Avatar*/
-@import url(../blocks/avatar/avatar.css);
-@import url(../blocks/avatar/_type/avatar_type_cricle.css);
-@import url(../blocks/avatar/__img/avatar__img.css);
-
 /*Profile*/
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar.css);
+@import url(../blocks/profile/__avatar/_type/profile__avatar_type_circle.css);
+@import url(../blocks/profile/__img/profile__img.css);
 @import url(../blocks/profile/__title/profile__title.css);
 @import url(../blocks/profile/__description/profile__description.css);
 @import url(../blocks/profile/__info/profile__info.css);
-@import url(../blocks/profile/__head/profile__head.css);
-@import url(../blocks/profile/__action/profile__action.css);
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__button/_action/profile__button_action_add.css);
 @import url(../blocks/profile/__button/_action/profile__button_action_edit.css);
@@ -39,31 +34,24 @@
 @import url(../blocks/photo-gallery/photo-gallery.css);
 @import url(../blocks/photo-gallery/__items/photo-gallery__items.css);
 @import url(../blocks/photo-gallery/__image/photo-gallery__image.css);
+@import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
 @import url(../blocks/photo-gallery/__figure/photo-gallery__figure.css);
 @import url(../blocks/photo-gallery/__figcaption/photo-gallery__figcaption.css);
 @import url(../blocks/photo-gallery/__button/photo-gallery__button.css);
-@import url(../blocks/photo-gallery/__button/_action/gallery__button_action_like.css);
-@import url(../blocks/photo-gallery/__button/_state/photo-gallery__button_type_active.css);
-@import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
+@import url(../blocks/photo-gallery/__button/_action/photo-gallery__button_action_like.css);
+@import url(../blocks/photo-gallery/__button/_active/photo-gallery__button_active.css);
 
 /*Modal*/
 @import url(../blocks/modal/modal.css);
 @import url(../blocks/modal/_visible/modal_visible.css);
 @import url(../blocks/modal/__container/modal__container.css);
 @import url(../blocks/modal/__button/modal__button.css);
-@import url(../blocks/modal/__button/_close/modal__button_close.css);
-@import url(../blocks/modal/__button/_save/modal__button_save.css);
-@import url(../blocks/modal/__content/modal__content.css);
-@import url(../blocks/modal/__header/modal__header.css);
+@import url(../blocks/modal/__button/_action/modal__button_action_close.css);
+@import url(../blocks/modal/__button/_action/modal__button_action_save.css);
 @import url(../blocks/modal/__title/modal__title.css);
-@import url(../blocks/modal/__body/modal__body.css);
 @import url(../blocks/modal/__form/modal__form.css);
 @import url(../blocks/modal/__input/modal__input.css);
-@import url(../blocks/modal/__input/_description/modal__input_description.css);
 
 /*Footer*/
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copy/footer__copy.css);
-
-/*MIX*/
-@import url(../blocks/link/link.css);

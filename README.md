@@ -11,7 +11,7 @@
 **GitHub Pages**
 
 * [Демо на GitHub Pages](https://tipdmr.github.io/mesto/)
-*
+
 ### WEB Технологии использованные при создании сайта
 - HTML5
 - CSS3
