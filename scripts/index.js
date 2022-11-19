@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", function (env) {
   let inputModalTitle = modalFormBlock.querySelector('.modal__input_type_title');
   let inputModalDescription = modalFormBlock.querySelector('.modal__input_type_description');
 
-  let firstLoad = true;
 
   let loadProfile = function (evn) {
     inputModalTitle.value = profileTitle.textContent;
@@ -26,10 +25,7 @@ document.addEventListener("DOMContentLoaded", function (env) {
   }
 
   let openModal = function (evn) {
-    if (firstLoad) {
-      loadProfile();
-      firstLoad = false;
-    }
+    loadProfile();
     modalBlock.classList.add('modal_visible');
   }
 
