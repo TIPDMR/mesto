@@ -6,22 +6,18 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  grid-area: title;
 }
-
-
 
 @media screen and (max-width: 575px) {
   .profile__title {
     font-size: 27px;
     line-height: 33px;
-    max-width: 282px;
-
   }
 }
 
-
-@media screen and (max-width:420px) {
+@media screen and (max-width: 420px) {
   .profile__title {
-    margin-left: 28px;
+    text-align: center;
   }
 }

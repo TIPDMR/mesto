@@ -6,9 +6,12 @@
   background-position: 50% 50%;
   background-color: transparent;
   border: 0;
-  display: inline-block;
   padding: 0;
   transition: .3s linear;
+}
+
+.photo-gallery__button_action_like:hover {
+  opacity: 0.5;
 }
 
 @media (max-width: 575px) {
