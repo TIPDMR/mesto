@@ -33,16 +33,16 @@ document.addEventListener("DOMContentLoaded", function (env) {
     modalBlock.classList.remove('modal_visible');
   }
 
-  // let closeModalClickOnBackground = function (evn) {
-  //   if (evn.target !== evn.currentTarget) {
-  //     return;
-  //   }
-  //   closeModal();
-  // }
+  let closeModalClickOnBackground = function (evn) {
+    if (evn.target !== evn.currentTarget) {
+      return;
+    }
+    closeModal();
+  }
 
   buttonOpenModal.addEventListener('click', openModal);
   buttonCloseModal.addEventListener('click', closeModal);
-  // modalBlock.addEventListener('click', closeModalClickOnBackground);
+  modalBlock.addEventListener('click', closeModalClickOnBackground);
   modalFormBlock.addEventListener('submit', saveProfile);
 
 })
