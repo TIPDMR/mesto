@@ -40,11 +40,11 @@
   <p class="footer__copy">&copy; 2022 Республика Хакасия</p>
 </footer>
 
-<div class="modal modal-form-profile-edit" tabindex="-1" role="dialog">
+<div class="modal modal__form-profile-edit" tabindex="-1" role="dialog">
   <div class="modal__container" role="document">
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Редактировать профиль</h2>
-    <form class="modal__form" name="profile__form" action="#">
+    <form class="modal__form modal__form_profile" name="profile__form" action="#">
       <input class="modal__input modal__input_type_title" type="text" name="title" id="title">
       <input class="modal__input modal__input_type_description" type="text" name="description" id="description">
       <button type="submit" class="modal__button modal__button_action_save">Сохранить</button>
@@ -52,11 +52,11 @@
   </div>
 </div>
 
-<div class="modal modal-form-image-add" tabindex="-1" role="dialog">
+<div class="modal modal__form-image-add" tabindex="-1" role="dialog">
   <div class="modal__container" role="document">
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Новое место</h2>
-    <form class="modal__form" name="element-add__form" action="#">
+    <form class="modal__form modal__form_image-add" name="form_image-add" action="#">
       <input class="modal__input modal__input_type_img-name" type="text" name="img-name" id="img-name" placeholder="Название">
       <input class="modal__input modal__input_type_img-src" type="text" name="img-src" id="img-src" placeholder="Ссылка на картинку">
       <button type="submit" class="modal__button modal__button_action_save">Создать</button>
@@ -64,7 +64,7 @@
   </div>
 </div>
 
-<div class="modal modal-image-zoom" tabindex="-1" role="dialog">
+<div class="modal modal__img-zoom" tabindex="-1" role="dialog">
   <div class="modal__img-container" role="document">
     <button type="button" class="modal__button modal__button_action_close"></button>
     <figure class="modal__figure">
@@ -89,6 +89,7 @@
 
 
 <!-- /#image-modal -->
+<script src="./scripts/data.js"></script>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
