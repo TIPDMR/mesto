@@ -31,7 +31,7 @@
   </section>
 
   <section class="photo-gallery content__photo-gallery" aria-label="Фото Галерея">
-
+    <ul class="photo-gallery__items"></ul>
   </section>
 
 </main>
@@ -64,20 +64,31 @@
   </div>
 </div>
 
-<template id="image-template">
-  <ul class="photo-gallery__items">
-    <li>
-      <article class="photo-gallery__figure">
-        <img class="photo-gallery__image" src="" alt="">
-        <div class="photo-gallery__figcaption">
-          <h2 class="photo-gallery__title"></h2>
-          <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
-        </div>
-        <button type="button" class="photo-gallery__button photo-gallery__button_action_trash"></button>
-      </article>
-    </li>
-  </ul>
+<div class="modal modal_image_zoom" tabindex="-1" role="dialog">
+  <div class="modal__img-container" role="document">
+    <button type="button" class="modal__button modal__button_action_close"></button>
+    <figure class="modal__figure">
+      <img class="modal__img" src="" alt="">
+      <figcaption class="modal__figcaption"></figcaption>
+    </figure>
+  </div>
+</div>
+
+<template id="gallery-template">
+  <li>
+    <article class="photo-gallery__figure">
+      <img class="photo-gallery__image" src="" alt="">
+      <div class="photo-gallery__figcaption">
+        <h2 class="photo-gallery__title"></h2>
+        <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
+      </div>
+      <button type="button" class="photo-gallery__button photo-gallery__button_action_trash"></button>
+    </article>
+  </li>
 </template>
+
+
+<!-- /#image-modal -->
 <script src="./scripts/index.js"></script>
 </body>
 </html>

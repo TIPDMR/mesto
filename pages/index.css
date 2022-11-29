@@ -52,6 +52,10 @@
 @import url(../blocks/modal/__title/modal__title.css);
 @import url(../blocks/modal/__form/modal__form.css);
 @import url(../blocks/modal/__input/modal__input.css);
+@import url(../blocks/modal/__img-container/modal__img-container.css);
+@import url(../blocks/modal/__figure/modal__figure.css);
+@import url(../blocks/modal/__figcaption/modal__figcaption.css);
+@import url(../blocks/modal/__img/modal__img.css);
 
 /*Footer*/
 @import url(../blocks/footer/footer.css);

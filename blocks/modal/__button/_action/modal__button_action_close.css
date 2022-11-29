@@ -18,6 +18,7 @@
 
 @media screen and (max-width: 575px) {
   .modal__button_action_close {
+    top: -36px;
     width: 20px;
     height: 20px;
     right: 0;
