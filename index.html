@@ -31,62 +31,7 @@
   </section>
 
   <section class="photo-gallery content__photo-gallery" aria-label="Фото Галерея">
-    <ul class="photo-gallery__items">
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/sayano-shushenskaya-hpp.jpg" alt="Саяно-Шушенская ГЭС">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Саяно&ndash;Шушенская ГЭС</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like photo-gallery__button_active"></button>
-          </div>
-        </article>
-      </li>
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/gladenkay.jpg" alt="Гладенькая Горнолыжный Курорт">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Гладенькая Горнолыжный Курорт</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like "></button>
-          </div>
-        </article>
-      </li>
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/sunduki.jpg" alt="Сундуки">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Сундуки</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like "></button>
-          </div>
-        </article>
-      </li>
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/Ergaki.jpg" alt="Ергаки">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Ергаки</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like "></button>
-          </div>
-        </article>
-      </li>
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/shirinskie-ozera.jpg" alt="Ширинские Озера">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Ширинские Озера</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like "></button>
-          </div>
-        </article>
-      </li>
-      <li>
-        <article class="photo-gallery__figure">
-          <img class="photo-gallery__image" src="./images/photo-gallery/tuimskiy-proval.jpg" alt="Туимский провал">
-          <div class="photo-gallery__figcaption">
-            <h2 class="photo-gallery__title">Туимский провал</h2>
-            <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
-          </div>
-        </article>
-      </li>
-    </ul>
+
   </section>
 
 </main>
@@ -95,7 +40,7 @@
   <p class="footer__copy">&copy; 2022 Республика Хакасия</p>
 </footer>
 
-<div class="modal" tabindex="-1" role="dialog">
+<div class="modal modal_form_profile_edit" tabindex="-1" role="dialog">
   <div class="modal__container" role="document">
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Редактировать профиль</h2>
@@ -106,6 +51,33 @@
     </form>
   </div>
 </div>
+
+<div class="modal modal_form_image_add" tabindex="-1" role="dialog">
+  <div class="modal__container" role="document">
+    <button type="button" class="modal__button modal__button_action_close"></button>
+    <h2 class="modal__title">Новое место</h2>
+    <form class="modal__form" name="element-add__form" action="#">
+      <input class="modal__input modal__input_type_img-name" type="text" name="img-name" id="img-name" placeholder="Название">
+      <input class="modal__input modal__input_type_img-src" type="text" name="img-src" id="img-src" placeholder="Ссылка на картинку">
+      <button type="submit" class="modal__button modal__button_action_save">Создать</button>
+    </form>
+  </div>
+</div>
+
+<template id="image-template">
+  <ul class="photo-gallery__items">
+    <li>
+      <article class="photo-gallery__figure">
+        <img class="photo-gallery__image" src="" alt="">
+        <div class="photo-gallery__figcaption">
+          <h2 class="photo-gallery__title"></h2>
+          <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
+        </div>
+        <button type="button" class="photo-gallery__button photo-gallery__button_action_trash"></button>
+      </article>
+    </li>
+  </ul>
+</template>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
