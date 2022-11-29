@@ -39,6 +39,7 @@
 @import url(../blocks/photo-gallery/__figcaption/photo-gallery__figcaption.css);
 @import url(../blocks/photo-gallery/__button/photo-gallery__button.css);
 @import url(../blocks/photo-gallery/__button/_action/photo-gallery__button_action_like.css);
+@import url(../blocks/photo-gallery/__button/_action/photo-gallery__button_action_trash.css);
 @import url(../blocks/photo-gallery/__button/_active/photo-gallery__button_active.css);
 
 /*Modal*/
