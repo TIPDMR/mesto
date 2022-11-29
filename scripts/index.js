@@ -1,155 +1,104 @@
-// document.addEventListener("DOMContentLoaded", function (env) {
-const initialCards = [
-  {name: 'Саяно-Шушенская ГЭС', link: './images/photo-gallery/sayano-shushenskaya-hpp.jpg'},
-  {name: 'Гладенькая Горнолыжный Курорт', link: './images/photo-gallery/gladenkay.jpg'},
-  {name: 'Сундуки', link: './images/photo-gallery/sunduki.jpg'},
-  {name: 'Ергаки', link: './images/photo-gallery/Ergaki.jpg'},
-  {name: 'Ширинские Озёра', link: './images/photo-gallery/shirinskie-ozera.jpg'},
-  {name: 'Туимский провал', link: './images/photo-gallery/tuimskiy-proval.jpg'}
-];
+const buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
+const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
 
-let buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
-let buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
+const profileTitle = document.querySelector('.profile__title');
+const profileDescription = document.querySelector('.profile__description');
 
-/**
- * Открытие модального окна
- * @param modalClass
- * @param myCallBackFunction
- */
-let createModal = (modalClass, myCallBackFunction = false) => {
+const modal = document.querySelectorAll('.modal');
+const modalProfile = document.querySelector('.modal-form-profile-edit');
+const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
+const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_type_title');
+const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_type_description');
 
-  let modalBlock = document.querySelector(modalClass);
-  let modalButtonClose = modalBlock.querySelector('.modal__button_action_close');
+const modalGallery = document.querySelector('.modal-block-image-add');
+const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add');
+const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.modal__input_type_img-name');
+const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_type_img-src');
+const selectorGallery = document.querySelector('.photo-gallery__items');
+const templateGalleryImage = document.querySelector('#gallery-template').content;
 
-  const openModal = function (evn) {
-    modalBlock.classList.add('modal_visible');
-  }
+const modalImageZoom = document.querySelector('.modal-image-zoom');
+const modalImageZoomImage = modalImageZoom.querySelector('.modal__img');
+const modalImageZoomFigcaption = modalImageZoom.querySelector('.modal__figcaption');
 
-  const closeModal = function (evn) {
-    modalBlock.classList.remove('modal_visible');
-  }
 
-  let closeModalClickOnBackground = function (evn) {
+const openModal = function (modalBlock) {
+  modalBlock.classList.add('modal_visible');
+}
+
+const closeModal = function (modalBlock) {
+  modalBlock.classList.remove('modal_visible');
+}
+
+modal.forEach((modalBlock) => {
+  modalBlock.querySelector('.modal__button_action_close').addEventListener('click', () => {
+    closeModal(modalBlock)
+  });
+  modalBlock.addEventListener('click', (evn) => {
     if (evn.target !== evn.currentTarget) {
       return;
     }
-    closeModal();
-  }
-  let actionSubmit = function (evn) {
-    evn.preventDefault();
-    closeModal();
-  }
+    closeModal(modalBlock);
+  });
+});
 
-  if (typeof (myCallBackFunction) === 'function' && modalClass) {
-    myCallBackFunction(modalClass);
-  }
-
-  modalBlock.addEventListener('submit', actionSubmit, {once: true});
-  modalButtonClose.addEventListener('click', closeModal);
-  modalBlock.addEventListener('click', closeModalClickOnBackground);
-  openModal();
+const clickImageTrash = (e) => {
+  e.preventDefault();
+  e.target.closest('li').remove();
 };
 
-/**
- * Работа с данными пользователя
- * @param modalClass
- */
-let eventClickProfileEdit = (modalClass) => {
-  let profileTitle = document.querySelector('.profile__title');
-  let profileDescription = document.querySelector('.profile__description');
+const clickImageLike = (e) => {
+  e.preventDefault();
+  e.target.classList.add('photo-gallery__button_active');
+};
 
-  let modalFormBlock = document.querySelector(modalClass);
-  let inputModalTitle = modalFormBlock.querySelector('.modal__input_type_title');
-  let inputModalDescription = modalFormBlock.querySelector('.modal__input_type_description');
+const clickImageZoom = (name, src) => {
+  modalImageZoomFigcaption.textContent = name;
+  modalImageZoomImage.src = src;
+  modalImageZoomImage.alt = name;
+  openModal(modalImageZoom);
+};
 
-  let loadProfile = function () {
-    inputModalTitle.value = profileTitle.textContent;
-    inputModalDescription.value = profileDescription.textContent
-  }
-  loadProfile();
-
-  let saveProfile = (e) => {
-    e.preventDefault();
-    profileTitle.textContent = inputModalTitle.value;
-    profileDescription.textContent = inputModalDescription.value;
-  }
-  modalFormBlock.addEventListener('submit', saveProfile, {once: true});
-}
-
-/**
- * Добавление изображения в галерею
- * @param name
- * @param src
- */
-let addImageToGallery = (name, src) => {
-  const imageTemplate = document.querySelector('#gallery-template').content;
-  const imagesTemplate = document.querySelector('.photo-gallery__items');
-  const imageElement = imageTemplate.querySelector('li').cloneNode(true);
-  let buttonTrash = imageElement.querySelector('.photo-gallery__button_action_trash');
-  let buttonLike = imageElement.querySelector('.photo-gallery__button_action_like');
+const createImage = (name, src) => {
+  const imageElement = templateGalleryImage.querySelector('li').cloneNode(true);
   imageElement.querySelector('.photo-gallery__title').textContent = name;
-  let image = imageElement.querySelector('.photo-gallery__image');
+  const image = imageElement.querySelector('.photo-gallery__image');
   image.src = src;
   image.alt = name;
-
-  let clickImageTrash = (e) => {
-    e.preventDefault();
-    e.target.closest('li').remove();
-  };
-  buttonTrash.addEventListener('click', clickImageTrash);
-
-  let clickImageLike = (e) => {
-    e.preventDefault();
-    e.target.classList.add('photo-gallery__button_active');
-  };
-  buttonLike.addEventListener('click', clickImageLike);
-
-  let clickImageZoom = (e) => {
-    let miz = document.querySelector('.modal-image-zoom');
-    let mi = miz.querySelector('.modal__img');
-    let mif = miz.querySelector('.modal__figcaption');
-    mif.textContent = name;
-    mi.src = src;
-    mi.alt = name;
-    createModal('.modal-image-zoom')
-  };
-  image.addEventListener('click', clickImageZoom);
-
-  imagesTemplate.prepend(imageElement);
+  imageElement.querySelector('.photo-gallery__button_action_trash').addEventListener('click', clickImageTrash);
+  imageElement.querySelector('.photo-gallery__button_action_like').addEventListener('click', clickImageLike);
+  imageElement.querySelector('.photo-gallery__image').addEventListener('click', () => {
+    clickImageZoom(name, src);
+  });
+  return imageElement;
 }
 
+initialCards.forEach((item) => selectorGallery.prepend(createImage(item.name, item.link)));
 
-/**
- * Обработчик формы добавления изображений в галерею
- * @param modalClass
- */
-let eventClickImageAdd = (modalClass) => {
-  const modalFormBlock = document.querySelector(modalClass);
-
-  let eventFormAddImage = (e) => {
-    e.preventDefault();
-    let inputImageName = modalFormBlock.querySelector('.modal__input_type_img-name');
-    let inputImageSrc = modalFormBlock.querySelector('.modal__input_type_img-src');
-    addImageToGallery(inputImageName.value, inputImageSrc.value);
-  };
-
-  modalFormBlock.addEventListener('submit', eventFormAddImage, {once: true});
+const eventSubmitProfileSave = (e) => {
+  e.preventDefault();
+  profileTitle.textContent = modalProfileInputTitle.value;
+  profileDescription.textContent = modalProfileInputDescription.value;
+  closeModal(modalProfile)
 }
 
-/**
- * Добавляем новые изображения
- * из массива в галерею
- */
-initialCards.forEach((item) => {
-  addImageToGallery(item.name, item.link)
-})
+const eventClickProfileEdit = (e) => {
+  modalProfileInputTitle.value = profileTitle.textContent;
+  modalProfileInputDescription.value = profileDescription.textContent
+  openModal(modalProfile)
+}
 
-/**
- * Слушатели событий при нажатии на кнопку
- */
-buttonOpenModalProfileEdit.addEventListener('click', () => {
-  createModal(".modal-form-profile-edit", eventClickProfileEdit);
-});
-buttonOpenModalImageAdd.addEventListener('click', () => {
-  createModal(".modal-form-image-add", eventClickImageAdd);
+const eventSubmitImageAdd = (e) => {
+  e.preventDefault();
+  selectorGallery.prepend(createImage(modalGalleryImageFormInputName.value, modalGalleryImageFormInputSrc.value));
+  modalGalleryImageFormInputName.value = '';
+  modalGalleryImageFormInputSrc.value = '';
+  closeModal(modalGallery);
+}
+
+modalProfileForm.addEventListener('submit', eventSubmitProfileSave);
+modalGalleryImageForm.addEventListener('submit', eventSubmitImageAdd);
+buttonOpenModalProfileEdit.addEventListener('click', eventClickProfileEdit);
+buttonOpenModalImageAdd.addEventListener('click', (e) => {
+  openModal(modalGallery)
 });
