@@ -105,13 +105,13 @@ let addImageToGallery = (name, src) => {
   buttonLike.addEventListener('click', clickImageLike);
 
   let clickImageZoom = (e) => {
-    let miz = document.querySelector('.modal_image_zoom');
+    let miz = document.querySelector('.modal__image_zoom');
     let mi = miz.querySelector('.modal__img');
     let mif = miz.querySelector('.modal__figcaption');
     mif.textContent = name;
     mi.src = src;
     mi.alt = name;
-    createModal('.modal_image_zoom')
+    createModal('.modal__image_zoom')
   };
   image.addEventListener('click', clickImageZoom);
 
@@ -148,8 +148,8 @@ initialCards.forEach((item) => {
  * Слушатели событий при нажатии на кнопку
  */
 buttonOpenModalProfileEdit.addEventListener('click', () => {
-  createModal(".modal_form_profile_edit", eventClickProfileEdit);
+  createModal(".modal__form_profile_edit", eventClickProfileEdit);
 });
 buttonOpenModalImageAdd.addEventListener('click', () => {
-  createModal(".modal_form_image_add", eventClickImageAdd);
+  createModal(".modal__form_image_add", eventClickImageAdd);
 });
