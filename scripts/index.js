@@ -8,7 +8,6 @@ const initialCards = [
   {name: 'Туимский провал', link: './images/photo-gallery/tuimskiy-proval.jpg'}
 ];
 
-
 let buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
 let buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
 
@@ -154,6 +153,3 @@ buttonOpenModalProfileEdit.addEventListener('click', () => {
 buttonOpenModalImageAdd.addEventListener('click', () => {
   createModal(".modal_form_image_add", eventClickImageAdd);
 });
-
-
-
