@@ -4,7 +4,7 @@ const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 
-const modal = document.querySelectorAll('.modal');
+const modals = document.querySelectorAll('.modal');
 const modalProfile = document.querySelector('.modal_form_profile');
 const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
 const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_type_title');
@@ -30,7 +30,7 @@ const closeModal = function (modalBlock) {
   modalBlock.classList.remove('modal_visible');
 }
 
-modal.forEach((modalBlock) => {
+modals.forEach((modalBlock) => {
   modalBlock.querySelector('.modal__button_action_close').addEventListener('click', () => {
     closeModal(modalBlock)
   });
