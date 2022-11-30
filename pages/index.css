@@ -56,7 +56,7 @@
 @import url(../blocks/modal/__figure/modal__figure.css);
 @import url(../blocks/modal/__figcaption/modal__figcaption.css);
 @import url(../blocks/modal/__img/modal__img.css);
-@import url(../blocks/modal/__img-zoom/modal__img-zoom.css);
+@import url(../blocks/modal/_zoom/modal_zoom_in.css);
 
 /*Footer*/
 @import url(../blocks/footer/footer.css);

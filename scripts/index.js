@@ -5,19 +5,19 @@ const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 
 const modal = document.querySelectorAll('.modal');
-const modalProfile = document.querySelector('.modal__form-profile-edit');
+const modalProfile = document.querySelector('.modal_form_profile');
 const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
 const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_type_title');
 const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_type_description');
 
-const modalGallery = document.querySelector('.modal__form-image-add');
+const modalGallery = document.querySelector('.modal_form_img-add');
 const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add');
 const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.modal__input_type_img-name');
 const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_type_img-src');
 const selectorGallery = document.querySelector('.photo-gallery__items');
 const templateGalleryImage = document.querySelector('#gallery-template').content;
 
-const modalImageZoom = document.querySelector('.modal__img-zoom');
+const modalImageZoom = document.querySelector('.modal_zoom_in');
 const modalImageZoomImage = modalImageZoom.querySelector('.modal__img');
 const modalImageZoomFigcaption = modalImageZoom.querySelector('.modal__figcaption');
 
