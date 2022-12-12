@@ -4,16 +4,16 @@ const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 
-const modals = document.querySelectorAll('.modal');
+const modalsList = document.querySelectorAll('.modal');
 const modalProfile = document.querySelector('.modal_form_profile');
 const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
-const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_type_title');
-const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_type_description');
+const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_name_title');
+const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_name_description');
 
 const modalGallery = document.querySelector('.modal_form_img-add');
 const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add');
-const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.modal__input_type_img-name');
-const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_type_img-src');
+const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.modal__input_name_img-name');
+const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_name_img-src');
 const selectorGallery = document.querySelector('.photo-gallery__items');
 const templateGalleryImage = document.querySelector('#gallery-template').content;
 
@@ -21,16 +21,27 @@ const modalImageZoom = document.querySelector('.modal_zoom_in');
 const modalImageZoomImage = modalImageZoom.querySelector('.modal__img');
 const modalImageZoomFigcaption = modalImageZoom.querySelector('.modal__figcaption');
 
+const formsList = document.querySelectorAll(".modal__form");
+
+
+const eventKeydownCheck = (evn) => {
+  if (evn.key === "Escape") {
+    const modalOpen = document.querySelector('.modal_visible')
+    closeModal(modalOpen);
+  }
+}
 
 const openModal = function (modalBlock) {
+  document.addEventListener('keydown', eventKeydownCheck);
   modalBlock.classList.add('modal_visible');
 }
 
 const closeModal = function (modalBlock) {
   modalBlock.classList.remove('modal_visible');
+  document.removeEventListener('keydown', eventKeydownCheck);
 }
 
-modals.forEach((modalBlock) => {
+modalsList.forEach((modalBlock) => {
   modalBlock.querySelector('.modal__button_action_close').addEventListener('click', () => {
     closeModal(modalBlock)
   });
@@ -84,8 +95,9 @@ const eventSubmitProfileSave = (e) => {
 
 const eventClickProfileEdit = (e) => {
   modalProfileInputTitle.value = profileTitle.textContent;
-  modalProfileInputDescription.value = profileDescription.textContent
-  openModal(modalProfile)
+  modalProfileInputDescription.value = profileDescription.textContent;
+  modalFormValidationReset(modalProfile);
+  openModal(modalProfile);
 }
 
 const eventSubmitImageAdd = (e) => {
@@ -99,5 +111,6 @@ modalGalleryImageForm.addEventListener('submit', eventSubmitImageAdd);
 buttonOpenModalProfileEdit.addEventListener('click', eventClickProfileEdit);
 buttonOpenModalImageAdd.addEventListener('click', (e) => {
   modalGalleryImageForm.reset();
+  modalFormValidationReset(modalGallery);
   openModal(modalGallery);
 });
