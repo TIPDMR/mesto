@@ -7,6 +7,7 @@
   line-height: 22px;
   border-radius: 2px;
   transition: .3s linear;
+  margin-top: 18px;
 }
 
 .modal__button_action_save:hover {

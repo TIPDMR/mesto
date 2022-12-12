@@ -45,9 +45,11 @@
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Редактировать профиль</h2>
     <form class="modal__form modal__form_profile" name="profile__form" action="#">
-      <input class="modal__input modal__input_type_title" type="text" name="title" id="title">
-      <input class="modal__input modal__input_type_description" type="text" name="description" id="description">
-      <button type="submit" class="modal__button modal__button_action_save">Сохранить</button>
+      <input class="modal__input modal__input_name_title" type="text" name="title" id="title" minlength="2" maxlength="40" required>
+      <span class="modal__input-error title-error"></span>
+      <input class="modal__input modal__input_name_description" type="text" name="description" id="description" minlength="2" maxlength="200" required>
+      <span class="modal__input-error description-error"></span>
+      <button type="submit" class="modal__button modal__button_action_save ">Сохранить</button>
     </form>
   </div>
 </div>
@@ -57,8 +59,10 @@
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Новое место</h2>
     <form class="modal__form modal__form_image-add" name="form_image-add" action="#">
-      <input class="modal__input modal__input_type_img-name" type="text" name="img-name" id="img-name" placeholder="Название">
-      <input class="modal__input modal__input_type_img-src" type="text" name="img-src" id="img-src" placeholder="Ссылка на картинку">
+      <input class="modal__input modal__input_name_img-name" type="text" name="img-name" id="img-name" placeholder="Название" minlength="2" maxlength="30" required>
+      <span class="modal__input-error img-name-error"></span>
+      <input class="modal__input modal__input_name_img-src" name="img-src" id="img-src" placeholder="Ссылка на картинку" type="url" required>
+      <span class="modal__input-error img-src-error"></span>
       <button type="submit" class="modal__button modal__button_action_save">Создать</button>
     </form>
   </div>
@@ -88,6 +92,8 @@
 </template>
 
 <script src="./scripts/data.js"></script>
+<script src="./scripts/validate-config.js"></script>
+<script src="./scripts/validate.js"></script>
 <script src="./scripts/index.js"></script>
 </body>
 </html>
