@@ -1,4 +1,5 @@
 .vscode/*
+.scripts_old/*
 .editorconfig
 .git/*
 ./doc/*
