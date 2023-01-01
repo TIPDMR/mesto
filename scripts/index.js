@@ -1,3 +1,6 @@
+import Card from './Card.js'
+import {CardData} from './Card-data.js'
+
 const buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
 const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
 
@@ -15,11 +18,6 @@ const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add
 const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.modal__input_name_img-name');
 const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_name_img-src');
 const selectorGallery = document.querySelector('.photo-gallery__items');
-const templateGalleryImage = document.querySelector('#gallery-template').content;
-
-const modalImageZoom = document.querySelector('.modal_zoom_in');
-const modalImageZoomImage = modalImageZoom.querySelector('.modal__img');
-const modalImageZoomFigcaption = modalImageZoom.querySelector('.modal__figcaption');
 
 const eventKeydownCheck = (evn) => {
   if (evn.key === "Escape") {
@@ -50,38 +48,13 @@ modalList.forEach((modalBlock) => {
   });
 });
 
-const clickImageTrash = (e) => {
-  e.preventDefault();
-  e.target.closest('.photo-gallery__element').remove();
-};
-
-const clickImageLike = (e) => {
-  e.preventDefault();
-  e.target.classList.toggle('photo-gallery__button_active');
-};
-
-const clickImageZoom = (name, src) => {
-  modalImageZoomFigcaption.textContent = name;
-  modalImageZoomImage.src = src;
-  modalImageZoomImage.alt = name;
-  openModal(modalImageZoom);
-};
-
-const createImage = (name, src) => {
-  const imageElement = templateGalleryImage.querySelector('.photo-gallery__element').cloneNode(true);
-  imageElement.querySelector('.photo-gallery__title').textContent = name;
-  const image = imageElement.querySelector('.photo-gallery__image');
-  image.src = src;
-  image.alt = name;
-  imageElement.querySelector('.photo-gallery__button_action_trash').addEventListener('click', clickImageTrash);
-  imageElement.querySelector('.photo-gallery__button_action_like').addEventListener('click', clickImageLike);
-  image.addEventListener('click', () => {
-    clickImageZoom(name, src);
-  });
-  return imageElement;
+const cardsAdd = function (name, src) {
+  selectorGallery.prepend(new Card({name: name, link: src}, '#gallery-template').generateCard())
 }
 
-initialCards.forEach((item) => selectorGallery.prepend(createImage(item.name, item.link)));
+CardData.forEach((item) => {
+  cardsAdd(item.name, item.link)
+});
 
 const eventSubmitProfileSave = (e) => {
   e.preventDefault();
@@ -93,13 +66,13 @@ const eventSubmitProfileSave = (e) => {
 const eventClickProfileEdit = () => {
   modalProfileInputTitle.value = profileTitle.textContent;
   modalProfileInputDescription.value = profileDescription.textContent;
-  formValidationReset(modalProfile);
+  //formValidationReset(modalProfile);
   openModal(modalProfile);
 }
 
 const eventSubmitImageAdd = (e) => {
   e.preventDefault();
-  selectorGallery.prepend(createImage(modalGalleryImageFormInputName.value, modalGalleryImageFormInputSrc.value));
+  cardsAdd(modalGalleryImageFormInputName.value, modalGalleryImageFormInputSrc.value)
   closeModal(modalGallery);
 }
 
@@ -108,6 +81,8 @@ modalGalleryImageForm.addEventListener('submit', eventSubmitImageAdd);
 buttonOpenModalProfileEdit.addEventListener('click', eventClickProfileEdit);
 buttonOpenModalImageAdd.addEventListener('click', () => {
   modalGalleryImageForm.reset();
-  formValidationReset(modalGallery);
+  //formValidationReset(modalGallery);
   openModal(modalGallery);
 });
+
+export {openModal}
