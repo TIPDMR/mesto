@@ -1,6 +1,6 @@
 import {openModal} from "./index.js";
 
-export default class Card {
+class Card {
   constructor(config, templateSelector) {
     this._name = config.name;
     this._src = config.link;
@@ -51,3 +51,5 @@ export default class Card {
     return this._element;
   }
 }
+
+export default Card
