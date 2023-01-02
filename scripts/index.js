@@ -22,7 +22,7 @@ const modalGalleryImageFormInputName = modalGalleryImageForm.querySelector('.mod
 const modalGalleryImageFormInputSrc = modalGalleryImageForm.querySelector('.modal__input_name_img-src');
 const selectorGallery = document.querySelector('.photo-gallery__items');
 
-const eventKeydownCheck = (evn) => {
+const handleClickEsc = (evn) => {
   if (evn.key === "Escape") {
     const modalOpen = document.querySelector('.modal_visible')
     closeModal(modalOpen);
@@ -30,20 +30,20 @@ const eventKeydownCheck = (evn) => {
 }
 
 const openModal = function (modalBlock) {
-  document.addEventListener('keydown', eventKeydownCheck);
+  document.addEventListener('keydown', handleClickEsc);
   modalBlock.classList.add('modal_visible');
 }
 
 const closeModal = function (modalBlock) {
   modalBlock.classList.remove('modal_visible');
-  document.removeEventListener('keydown', eventKeydownCheck);
+  document.removeEventListener('keydown', handleClickEsc);
 }
 
 modalList.forEach((modalBlock) => {
   modalBlock.querySelector('.modal__button_action_close').addEventListener('click', () => {
     closeModal(modalBlock)
   });
-  modalBlock.addEventListener('click', (evn) => {
+  modalBlock.addEventListener('mousedown', (evn) => {
     if (evn.target !== evn.currentTarget) {
       return;
     }
@@ -51,49 +51,47 @@ modalList.forEach((modalBlock) => {
   });
 });
 
-const cardsAdd = function (name, src) {
-  selectorGallery.prepend(new Card({name: name, link: src}, '#gallery-template').generateCard())
+const createCard = function (name, src) {
+  return new Card({name: name, link: src}, '#gallery-template').generateCard()
 }
 
 CardData.forEach((item) => {
-  cardsAdd(item.name, item.link)
+  selectorGallery.prepend(createCard(item.name, item.link))
 });
 
-const formProfile = new FormValidator(FormValidationConfig, modalProfileForm)
-formProfile.enableValidation()
+const formValidatorProfile = new FormValidator(FormValidationConfig, modalProfileForm)
+formValidatorProfile.enableValidation()
 
-const formGallery = new FormValidator(FormValidationConfig, modalGalleryImageForm)
-formGallery.enableValidation()
+const formValidatorGallery = new FormValidator(FormValidationConfig, modalGalleryImageForm)
+formValidatorGallery.enableValidation()
 
-const eventSubmitProfileSave = (e) => {
+const handleFormSubmitProfileUpdate = (e) => {
   e.preventDefault();
   profileTitle.textContent = modalProfileInputTitle.value;
   profileDescription.textContent = modalProfileInputDescription.value;
   closeModal(modalProfile)
 }
 
-const eventClickProfileEdit = () => {
+const handleButtonClickProfileEdit = () => {
   modalProfileInputTitle.value = profileTitle.textContent;
   modalProfileInputDescription.value = profileDescription.textContent;
-  formProfile.formValidationReset();
+  formValidatorProfile.formValidationReset();
   openModal(modalProfile);
 }
 
-const eventSubmitImageAdd = (e) => {
+const handleFormSubmitCardCreate = (e) => {
   e.preventDefault();
-  cardsAdd(modalGalleryImageFormInputName.value, modalGalleryImageFormInputSrc.value)
+  selectorGallery.prepend(createCard(modalGalleryImageFormInputName.value, modalGalleryImageFormInputSrc.value))
   closeModal(modalGallery);
 }
 
-modalProfileForm.addEventListener('submit', eventSubmitProfileSave);
-modalGalleryImageForm.addEventListener('submit', eventSubmitImageAdd);
-buttonOpenModalProfileEdit.addEventListener('click', eventClickProfileEdit);
+modalProfileForm.addEventListener('submit', handleFormSubmitProfileUpdate);
+modalGalleryImageForm.addEventListener('submit', handleFormSubmitCardCreate);
+buttonOpenModalProfileEdit.addEventListener('click', handleButtonClickProfileEdit);
 buttonOpenModalImageAdd.addEventListener('click', () => {
   modalGalleryImageForm.reset();
-  formGallery.formValidationReset();
+  formValidatorGallery.formValidationReset();
   openModal(modalGallery);
 });
-
-
 
 export {openModal}

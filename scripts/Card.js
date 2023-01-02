@@ -16,19 +16,18 @@ class Card {
   }
 
   _clickImageTrash = (e) => {
-    e.preventDefault();
-    e.target.closest('.photo-gallery__element').remove();
+    this._element.remove();
+    this._element = null;
   };
 
   _clickImageLike = (e) => {
-    e.preventDefault();
-    e.target.classList.toggle('photo-gallery__button_active');
+    this._buttonLike.classList.toggle('photo-gallery__button_active');
   };
 
 
   _setEventListeners() {
-    this._element.querySelector('.photo-gallery__button_action_trash').addEventListener('click', this._clickImageTrash);
-    this._element.querySelector('.photo-gallery__button_action_like').addEventListener('click', this._clickImageLike);
+    this._element.querySelector('.photo-gallery__button_action_trash').addEventListener('click',  () => this._clickImageTrash());
+    this._buttonLike.addEventListener('click', this._clickImageLike);
     this._elementImage.addEventListener('click', this._clickImageZoom);
   }
 
@@ -47,6 +46,7 @@ class Card {
     this._elementImage = this._element.querySelector('.photo-gallery__image');
     this._elementImage.src = this._src;
     this._elementImage.alt = this._name;
+    this._buttonLike = this._element.querySelector('.photo-gallery__button_action_like');
     this._setEventListeners();
     return this._element;
   }

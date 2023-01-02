@@ -31,40 +31,38 @@ class FormValidator {
     }
   };
 
-  _hasInvalidInput(inputList) {
-    return inputList.some((inputElement) => !inputElement.validity.valid)
+  _hasInvalidInput() {
+    return this._inputList.some((inputElement) => !inputElement.validity.valid)
   }
 
-  _changeButtonState(inputList, buttonElement) {
-    if (this._hasInvalidInput(inputList)) {
-      buttonElement.classList.add(this._inactiveButtonClass);
+  _changeButtonState() {
+    if (this._hasInvalidInput()) {
+      this._buttonElement.classList.add(this._inactiveButtonClass);
     } else {
-      buttonElement.classList.remove(this._inactiveButtonClass);
+      this._buttonElement.classList.remove(this._inactiveButtonClass);
     }
   };
 
-  _setEventListeners(inputElement, inputList, buttonElement) {
+  _setEventListeners(inputElement) {
     inputElement.addEventListener('input', () => {
-      this._changeButtonState(inputList, buttonElement);
+      this._changeButtonState();
       this._checkInputValidity(inputElement);
     });
   }
 
   enableValidation() {
-    const inputList = [...this._formElement.querySelectorAll(this._inputSelector)];
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector)
-    this._changeButtonState(inputList, buttonElement);
-    inputList.forEach((inputElement) => {
-      this._setEventListeners(inputElement, inputList, buttonElement)
+    this._inputList = [...this._formElement.querySelectorAll(this._inputSelector)];
+    this._buttonElement = this._formElement.querySelector(this._submitButtonSelector)
+    this._inputList.forEach((inputElement) => {
+      this._setEventListeners(inputElement)
     });
+    this._changeButtonState();
   };
 
   formValidationReset() {
-    const inputList = [...this._formElement.querySelectorAll(this._inputSelector)];
-    const buttonElement = this._formElement.querySelector(this._submitButtonSelector);
-    inputList.forEach((inputElement) => {
+    this._changeButtonState();
+    this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement)
-      this._changeButtonState(inputList, buttonElement);
     });
   }
 }
