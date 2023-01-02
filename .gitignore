@@ -1,8 +1,6 @@
 .vscode/*
-.scripts_old/*
 .editorconfig
 .git/*
-./doc/*
 .idea/*
 .idea/.gitignore
 .idea/mesto.iml
