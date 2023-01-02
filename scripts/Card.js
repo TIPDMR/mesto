@@ -15,18 +15,18 @@ class Card {
       .cloneNode(true);
   }
 
-  _clickImageTrash = (e) => {
+  _clickImageTrash = () => {
     this._element.remove();
     this._element = null;
   };
 
-  _clickImageLike = (e) => {
+  _clickImageLike = () => {
     this._buttonLike.classList.toggle('photo-gallery__button_active');
   };
 
 
   _setEventListeners() {
-    this._element.querySelector('.photo-gallery__button_action_trash').addEventListener('click',  () => this._clickImageTrash());
+    this._element.querySelector('.photo-gallery__button_action_trash').addEventListener('click', () => this._clickImageTrash());
     this._buttonLike.addEventListener('click', this._clickImageLike);
     this._elementImage.addEventListener('click', this._clickImageZoom);
   }
