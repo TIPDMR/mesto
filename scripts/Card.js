@@ -38,7 +38,7 @@ export default class Card {
     const modalImageZoomImage = this._modalImageZoom.querySelector('.modal__img');
     modalImageZoomImage.src = this._src;
     modalImageZoomImage.alt = this._name;
-     openModal(this._modalImageZoom);
+    openModal(this._modalImageZoom);
   };
 
   generateCard() {

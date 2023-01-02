@@ -1,5 +1,8 @@
+import {CardData} from './CardData.js'
 import Card from './Card.js'
-import {CardData} from './Card-data.js'
+import {FormValidationConfig} from './FormValidatorConfig.js'
+import FormValidator from './FormValidator.js'
+
 
 const buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
 const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
@@ -56,6 +59,12 @@ CardData.forEach((item) => {
   cardsAdd(item.name, item.link)
 });
 
+const formProfile = new FormValidator(FormValidationConfig, modalProfileForm)
+formProfile.enableValidation()
+
+const formGallery = new FormValidator(FormValidationConfig, modalGalleryImageForm)
+formGallery.enableValidation()
+
 const eventSubmitProfileSave = (e) => {
   e.preventDefault();
   profileTitle.textContent = modalProfileInputTitle.value;
@@ -66,7 +75,7 @@ const eventSubmitProfileSave = (e) => {
 const eventClickProfileEdit = () => {
   modalProfileInputTitle.value = profileTitle.textContent;
   modalProfileInputDescription.value = profileDescription.textContent;
-  //formValidationReset(modalProfile);
+  formProfile.formValidationReset();
   openModal(modalProfile);
 }
 
@@ -81,8 +90,10 @@ modalGalleryImageForm.addEventListener('submit', eventSubmitImageAdd);
 buttonOpenModalProfileEdit.addEventListener('click', eventClickProfileEdit);
 buttonOpenModalImageAdd.addEventListener('click', () => {
   modalGalleryImageForm.reset();
-  //formValidationReset(modalGallery);
+  formGallery.formValidationReset();
   openModal(modalGallery);
 });
+
+
 
 export {openModal}
