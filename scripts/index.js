@@ -1,6 +1,6 @@
-import {CardData} from './CardData.js'
+import {cardData} from './cardData.js'
 import Card from './Card.js'
-import {FormValidationConfig} from './FormValidatorConfig.js'
+import {formValidationConfig} from './formValidatorConfig.js'
 import FormValidator from './FormValidator.js'
 
 
@@ -55,14 +55,14 @@ const createCard = function (name, src) {
   return new Card({name: name, link: src}, '#gallery-template').generateCard()
 }
 
-CardData.forEach((item) => {
+cardData.forEach((item) => {
   selectorGallery.prepend(createCard(item.name, item.link))
 });
 
-const formValidatorProfile = new FormValidator(FormValidationConfig, modalProfileForm)
+const formValidatorProfile = new FormValidator(formValidationConfig, modalProfileForm)
 formValidatorProfile.enableValidation()
 
-const formValidatorGallery = new FormValidator(FormValidationConfig, modalGalleryImageForm)
+const formValidatorGallery = new FormValidator(formValidationConfig, modalGalleryImageForm)
 formValidatorGallery.enableValidation()
 
 const handleFormSubmitProfileUpdate = (e) => {

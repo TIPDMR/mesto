@@ -1,4 +1,4 @@
-export const CardData = [
+export const cardData = [
   {name: 'Саяно-Шушенская ГЭС', link: './images/photo-gallery/sayano-shushenskaya-hpp.jpg'},
   {name: 'Гладенькая Горнолыжный Курорт', link: './images/photo-gallery/gladenkay.jpg'},
   {name: 'Сундуки', link: './images/photo-gallery/sunduki.jpg'},
