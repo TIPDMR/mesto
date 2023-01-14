@@ -1,10 +1,9 @@
-import {openModal} from "./index.js";
-
 class Card {
-  constructor(config, templateSelector) {
-    this._name = config.name;
-    this._src = config.link;
+  constructor({name, link, handleCardClick}, templateSelector) {
+    this._name = name;
+    this._src = link;
     this._templateSelector = templateSelector;
+    this._handleCardClick = handleCardClick;
   }
 
   _getTemplate() {
@@ -28,17 +27,10 @@ class Card {
   _setEventListeners() {
     this._element.querySelector('.photo-gallery__button_action_trash').addEventListener('click', () => this._clickImageTrash());
     this._buttonLike.addEventListener('click', () => this._clickImageLike());
-    this._elementImage.addEventListener('click', () => this._clickImageZoom());
+    this._elementImage.addEventListener('click', () => this._handleCardClick());
   }
 
-  _clickImageZoom() {
-    this._modalImageZoom = document.querySelector('.modal_zoom_in');
-    this._modalImageZoom.querySelector('.modal__figcaption').textContent = this._name;
-    const modalImageZoomImage = this._modalImageZoom.querySelector('.modal__img');
-    modalImageZoomImage.src = this._src;
-    modalImageZoomImage.alt = this._name;
-    openModal(this._modalImageZoom);
-  };
+
 
   generateCard() {
     this._element = this._getTemplate();

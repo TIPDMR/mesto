@@ -1,11 +1,11 @@
 class FormValidator {
 
-  constructor(config, formElement) {
-    this._inputSelector = config.inputSelector
-    this._submitButtonSelector = config.submitButtonSelector
-    this._inactiveButtonClass = config.inactiveButtonClass
-    this._inputErrorClass = config.inputErrorClass
-    this._errorClass = config.errorClass
+  constructor({inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}, formElement) {
+    this._inputSelector = inputSelector
+    this._submitButtonSelector = submitButtonSelector
+    this._inactiveButtonClass = inactiveButtonClass
+    this._inputErrorClass = inputErrorClass
+    this._errorClass = errorClass
     this._formElement = formElement
   }
 
@@ -37,9 +37,12 @@ class FormValidator {
 
   _changeButtonState() {
     if (this._hasInvalidInput()) {
+      this._buttonElement.setAttribute("disabled", "");
       this._buttonElement.classList.add(this._inactiveButtonClass);
     } else {
+      this._buttonElement.removeAttribute("disabled");
       this._buttonElement.classList.remove(this._inactiveButtonClass);
+
     }
   };
 
