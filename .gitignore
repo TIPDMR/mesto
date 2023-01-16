@@ -1,6 +1,7 @@
+node_modules
+dist
 .vscode/*
 .editorconfig
-node_modules
 .git/*
 .idea/*
 .idea/.gitignore
