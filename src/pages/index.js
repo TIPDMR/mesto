@@ -1,28 +1,26 @@
-import {cardData} from './cardData.js'
-import Card from './Card.js'
-import {formValidationConfig} from './formValidatorConfig.js'
-import FormValidator from './FormValidator.js'
-import Section from './Section.js'
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
-
-
-const buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
-const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
-
-const profileTitle = document.querySelector('.profile__title');
-const profileDescription = document.querySelector('.profile__description');
-
-const modalProfile = document.querySelector('.modal_form_profile');
-const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
-const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_name_title');
-const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_name_description');
-
-const modalGallery = document.querySelector('.modal_form_img-add');
-const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add');
-const selectorGallery = document.querySelector('.photo-gallery__items');
-const modalZoomIn = document.querySelector('.modal_zoom_in');
+import './index.css';
+import {
+  buttonOpenModalImageAdd,
+  buttonOpenModalProfileEdit,
+  cardData,
+  formValidationConfig,
+  modalGallery,
+  modalGalleryImageForm,
+  modalProfile,
+  modalProfileForm,
+  modalProfileInputDescription,
+  modalProfileInputTitle,
+  modalZoomIn,
+  profileDescription,
+  profileTitle,
+  selectorGallery,
+} from '../utils/constants.js'
+import Card from '../components/Card.js'
+import Section from '../components/Section.js'
+import FormValidator from '../components/FormValidator.js'
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from "../components/UserInfo.js";
 
 
 /**
@@ -36,6 +34,9 @@ const formValidatorGallery = new FormValidator(formValidationConfig, modalGaller
  */
 const userInfo = new UserInfo({selectorTitle: profileTitle, selectorDescription: profileDescription})
 
+/**
+ * Модальное окно с карточкой
+ */
 const popupWitchImage = new PopupWithImage(modalZoomIn);
 popupWitchImage.setEventListeners();
 
