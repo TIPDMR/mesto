@@ -14,10 +14,10 @@ import {
   profileDescription,
   profileTitle,
   selectorGallery,
-} from '../utils/constants.js'
-import Card from '../components/Card.js'
-import Section from '../components/Section.js'
-import FormValidator from '../components/FormValidator.js'
+} from '../utils/constants.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from "../components/UserInfo.js";
@@ -26,13 +26,13 @@ import UserInfo from "../components/UserInfo.js";
 /**
  * Валидация форм
  */
-const formValidatorProfile = new FormValidator(formValidationConfig, modalProfileForm)
-const formValidatorGallery = new FormValidator(formValidationConfig, modalGalleryImageForm)
+const formValidatorProfile = new FormValidator(formValidationConfig, modalProfileForm);
+const formValidatorGallery = new FormValidator(formValidationConfig, modalGalleryImageForm);
 
 /**
  * Название и описание сайта
  */
-const userInfo = new UserInfo({selectorTitle: profileTitle, selectorDescription: profileDescription})
+const userInfo = new UserInfo({titleContainer: profileTitle, descriptionContainer: profileDescription});
 
 /**
  * Модальное окно с карточкой
@@ -59,8 +59,8 @@ function createCard(name, src) {
 const cardList = new Section({
     items: cardData,
     renderer: (cardElement) => {
-      const card = createCard(cardElement.name, cardElement.link)
-      cardList.addItem(card)
+      const card = createCard(cardElement.name, cardElement.link);
+      cardList.addItem(card);
     },
   },
   selectorGallery
