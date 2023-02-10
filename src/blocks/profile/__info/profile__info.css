@@ -12,6 +12,7 @@
   max-width: 550px;
 }
 
+
 @media screen and (max-width: 768px) {
   .profile__info {
     max-width: 282px;

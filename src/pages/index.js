@@ -1,89 +1,134 @@
 import './index.css';
-import {
-  buttonOpenModalImageAdd,
-  buttonOpenModalProfileEdit,
-  cardData,
-  formValidationConfig,
-  modalGallery,
-  modalGalleryImageForm,
-  modalProfile,
-  modalProfileForm,
-  modalProfileInputDescription,
-  modalProfileInputTitle,
-  modalZoomIn,
-  profileDescription,
-  profileTitle,
-  selectorGallery,
-} from '../utils/constants.js';
+import {apiBaseUrl, apiToken, buttonOpenModalImageAdd, buttonOpenModalProfileEdit, formValidationConfig, modalGallerySelector, modalGalleryImageFormSelector, modalProfileSelector, modalProfileFormSelector, modalZoomInSelector, preloaderContainer, profileAboutSelector, profileAvatarSelector, profileNameSelector, galleryContainer, modalFormConfirm, buttonOpenModalProfileEditAvatar, modalProfileAvatarSelector, modalProfileAvatarFormSelector,} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
+import PopupWithConfirm from "../components/PopupWithConfirm";
+
+const api = new Api({
+  baseUrl: apiBaseUrl,
+  headers: {
+    authorization: apiToken,
+    'Content-Type': 'application/json'
+  }
+})
 
 
 /**
  * Валидация форм
  */
-const formValidatorProfile = new FormValidator(formValidationConfig, modalProfileForm);
-const formValidatorGallery = new FormValidator(formValidationConfig, modalGalleryImageForm);
+const formValidatorProfile = new FormValidator(formValidationConfig, modalProfileFormSelector);
+const formValidatorGallery = new FormValidator(formValidationConfig, modalGalleryImageFormSelector);
+const formValidatorProfileAvatar = new FormValidator(formValidationConfig, modalProfileAvatarFormSelector);
 
 /**
  * Название и описание сайта
  */
-const userInfo = new UserInfo({titleContainer: profileTitle, descriptionContainer: profileDescription});
-
-/**
- * Модальное окно с карточкой
- */
-const popupWitchImage = new PopupWithImage(modalZoomIn);
-popupWitchImage.setEventListeners();
-
-/**
- * Создание карточки
- */
-function createCard(name, src) {
-  return new Card({
-      name: name,
-      link: src,
-      handleCardClick: () => popupWitchImage.open(name, src),
-    },
-    '#gallery-template',).generateCard()
-}
+const userInfo = new UserInfo({nameSelector: profileNameSelector, aboutSelector: profileAboutSelector, avatarSelector: profileAvatarSelector});
 
 /**
  * Добавление карточки
  * на страницу
  */
-const cardList = new Section({
-    items: cardData,
+const cardsList = new Section({
     renderer: (cardElement) => {
-      const card = createCard(cardElement.name, cardElement.link);
-      cardList.addItem(card);
+      const card = createCard(cardElement._id, cardElement.name, cardElement.link, cardElement.likes, cardElement.owner._id, userInfo.getUserInfo().id);
+      cardsList.addItem(card);
     },
   },
-  selectorGallery
+  galleryContainer
 );
-cardList.renderItems()
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([{name, about, avatar, _id}, cards]) => {
+    userInfo.setUserInfo(name, about, _id);
+    userInfo.setUserAvatar(avatar);
+    cardsList.renderItems(cards.reverse());
+  })
+  .catch((err) => console.log(err))
+  .finally(() => preloaderContainer.classList.add('preloader_hidden'));
+
+
+/**
+ * Модальное окно с карточкой
+ */
+const popupWitchImage = new PopupWithImage(modalZoomInSelector);
+popupWitchImage.setEventListeners();
+
+/**
+ * Модальное окно
+ * подтверждения удаления карточки
+ */
+const popupWithConfirm = new PopupWithConfirm(modalFormConfirm);
+popupWithConfirm.setEventListeners();
+
+/**
+ * Создание карточки
+ */
+function createCard(id, name, src, likes, ownerId, userId) {
+  return new Card({
+      _id: id,
+      name: name,
+      link: src,
+      likes: likes,
+      ownerId: ownerId,
+      userId: userId,
+    },
+    {
+      handleCardClick: () => popupWitchImage.open(name, src),
+      handleCardClickLike: (card) => {
+        if (card.isLikeActive()) {
+          api.delLike(card._id)
+            .then((res) => {
+              card.setLikesNumber(res.likes.length || '');
+              card.toggleButtonLike();
+            }).catch((err) => console.log(err))
+        } else {
+          api.setLike(card._id)
+            .then((res) => {
+              card.setLikesNumber(res.likes.length || '');
+              card.toggleButtonLike();
+            })
+            .catch((err) => console.log(err))
+        }
+      },
+      handleCardClickTrash: (card) => {
+        popupWithConfirm.setHandleSubmitForm(() => {
+          api.delCard(card._id)
+            .then(() => card.clickImageTrash())
+            .catch((err) => console.log(err))
+        });
+        popupWithConfirm.open();
+      },
+    },
+    '#gallery-template',).generateCard();
+}
 
 
 /**
  * Модальное окно
  * Форма для редактирования
- * названия и описания сайта
+ * названия и описания профиля
  */
+
 const popupWithFormProfile = new PopupWithForm({
-  handleSubmitForm: (inputsValue) => userInfo.setUserInfo(inputsValue["title"], inputsValue["description"]),
-}, modalProfile);
+  handleSubmitForm: (inputsValue) => {
+    return api.setUserInfo(inputsValue["user-name"], inputsValue["user-about"])
+      .then(() => userInfo.setUserInfo(inputsValue["user-name"], inputsValue["user-about"]))
+      .catch((err) => console.log(err))
+  },
+}, modalProfileSelector);
 popupWithFormProfile.setEventListeners();
 
 
 const handleButtonClickProfileEdit = () => {
-  const {title, description} = userInfo.getUserInfo();
-  modalProfileInputTitle.value = title;
-  modalProfileInputDescription.value = description;
+  const {name, about} = userInfo.getUserInfo();
   formValidatorProfile.formValidationReset();
+  popupWithFormProfile.setInputValues({"user-name": name, "user-about": about})
   popupWithFormProfile.open();
 }
 buttonOpenModalProfileEdit.addEventListener('click', handleButtonClickProfileEdit);
@@ -95,10 +140,12 @@ buttonOpenModalProfileEdit.addEventListener('click', handleButtonClickProfileEdi
  */
 const popupWithFormGallery = new PopupWithForm({
   handleSubmitForm: (inputsValue) => {
-    const card = createCard(inputsValue["img-name"], inputsValue["img-src"]);
-    cardList.addItem(card);
+    return api.setCard(inputsValue["card-name"], inputsValue["card-img"]).then((res) => {
+      const card = createCard(res._id, res.name, res.link, res.likes, res.owner._id, res.owner._id);
+      cardsList.addItem(card);
+    }).catch((err) => console.log(err));
   },
-}, modalGallery);
+}, modalGallerySelector);
 popupWithFormGallery.setEventListeners();
 
 buttonOpenModalImageAdd.addEventListener('click', () => {
@@ -106,10 +153,28 @@ buttonOpenModalImageAdd.addEventListener('click', () => {
   popupWithFormGallery.open()
 });
 
+/**
+ * Модальное окно
+ * Форма для обновления
+ * аватара пользователя
+ */
+const popupWithFormProfileAvatar = new PopupWithForm({
+  handleSubmitForm: (inputsValue) => {
+    return api.setAvatar(inputsValue['avatar-link']).then(() => userInfo.setUserAvatar(inputsValue['avatar-link'])).catch((err) => console.log(err));
+  },
+}, modalProfileAvatarSelector);
+popupWithFormProfileAvatar.setEventListeners();
+
+buttonOpenModalProfileEditAvatar.addEventListener('click', () => {
+  formValidatorProfileAvatar.formValidationReset()
+  popupWithFormProfileAvatar.open()
+
+});
 
 /**
  * Включение валидации форм
  */
 formValidatorProfile.enableValidation()
 formValidatorGallery.enableValidation()
+formValidatorProfileAvatar.enableValidation()
 

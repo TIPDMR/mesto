@@ -2,11 +2,12 @@ import Popup from "./Popup.js";
 
 class PopupWithForm extends Popup {
 
-  constructor({handleSubmitForm}, popupContainer) {
-    super(popupContainer);
+  constructor({handleSubmitForm}, popupSelector) {
+    super(popupSelector);
     this._handleSubmitForm = handleSubmitForm;
     this._formContainer = this._popupContainer.querySelector('.modal__form');
     this._inputsList = this._formContainer.querySelectorAll('.modal__input');
+    this._buttonElement = this._formContainer.querySelector('.modal__button')
   }
 
   _getInputValues() {
@@ -15,13 +16,21 @@ class PopupWithForm extends Popup {
     return inputValue;
   }
 
+  setInputValues(inputsValue) {
+    this._inputsList.forEach((input) => {
+      input.value = inputsValue[input.name]
+    });
+  }
+
   setEventListeners() {
     super.setEventListeners();
     this._formContainer.addEventListener('submit', (evn) => {
       evn.preventDefault();
-      this._inputValues = this._getInputValues();
-      this._handleSubmitForm(this._inputValues);
-      this.close();
+      const textBefore = this._buttonElement.textContent;
+      this._buttonElement.textContent = "Сохранение...";
+      this._handleSubmitForm(this._getInputValues())
+        .then(() => this.close())
+        .finally(() => this._buttonElement.textContent = textBefore);
     });
   }
 

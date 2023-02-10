@@ -11,6 +11,7 @@
   position: absolute;
   right: 0;
   top: 20px;
+  margin-right: 15px;
 }
 
 .photo-gallery__button_action_trash:hover {
