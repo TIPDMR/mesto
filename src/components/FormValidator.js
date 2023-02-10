@@ -1,12 +1,12 @@
 class FormValidator {
 
-  constructor({inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}, formContainer) {
+  constructor({inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass}, popupSelector) {
     this._inputSelector = inputSelector;
     this._submitButtonSelector = submitButtonSelector;
     this._inactiveButtonClass = inactiveButtonClass;
     this._inputErrorClass = inputErrorClass;
     this._errorClass = errorClass;
-    this._formContainer = formContainer;
+    this._formContainer = document.querySelector(popupSelector);
   }
 
   _showInputError(inputElement) {

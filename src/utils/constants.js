@@ -1,12 +1,3 @@
-export const cardData = [
-  {name: 'Саяно-Шушенская ГЭС', link: new URL('../images/photo-gallery/sayano-shushenskaya-hpp.jpg', import.meta.url)},
-  {name: 'Гладенькая Горнолыжный Курорт', link: new URL('../images/photo-gallery/gladenkay.jpg', import.meta.url)},
-  {name: 'Сундуки', link: new URL('../images/photo-gallery/sunduki.jpg', import.meta.url)},
-  {name: 'Ергаки', link: new URL('../images/photo-gallery/Ergaki.jpg', import.meta.url)},
-  {name: 'Ширинские Озёра', link: new URL('../images/photo-gallery/shirinskie-ozera.jpg', import.meta.url)},
-  {name: 'Туимский провал', link: new URL('../images/photo-gallery/tuimskiy-proval.jpg', import.meta.url)},
-]
-
 export const formValidationConfig = {
   formSelector: '.modal__form',
   inputSelector: '.modal__input',
@@ -18,16 +9,27 @@ export const formValidationConfig = {
 
 export const buttonOpenModalProfileEdit = document.querySelector('.profile__button_action_edit');
 export const buttonOpenModalImageAdd = document.querySelector('.profile__button_action_add');
+export const buttonOpenModalProfileEditAvatar = document.querySelector('.profile__button_action_edit-avatar');
 
-export const profileTitle = document.querySelector('.profile__title');
-export const profileDescription = document.querySelector('.profile__description');
 
-export const modalProfile = document.querySelector('.modal_form_profile');
-export const modalProfileForm = modalProfile.querySelector('.modal__form_profile');
-export const modalProfileInputTitle = modalProfileForm.querySelector('.modal__input_name_title');
-export const modalProfileInputDescription = modalProfileForm.querySelector('.modal__input_name_description');
+export const profileNameSelector = '.profile__name';
+export const profileAboutSelector = '.profile__about';
+export const profileAvatarSelector = '.profile__img';
 
-export const modalGallery = document.querySelector('.modal_form_img-add');
-export const modalGalleryImageForm = modalGallery.querySelector('.modal__form_image-add');
-export const selectorGallery = document.querySelector('.photo-gallery__items');
-export const modalZoomIn = document.querySelector('.modal_zoom_in');
+export const modalProfileAvatarSelector = '.modal_form_avatar-edit';
+export const modalProfileAvatarFormSelector = '.modal__form-avatar-edit';
+
+export const modalFormConfirm = '.modal_form_confirm';
+export const modalProfileSelector = '.modal_form_profile';
+export const modalProfileFormSelector = '.modal__form-profile';
+
+export const modalGallerySelector = '.modal_form_img-add';
+export const modalGalleryImageFormSelector = '.modal__form-card-add';
+export const modalZoomInSelector = '.modal_zoom_in';
+
+export const galleryContainer = document.querySelector('.photo-gallery__items');
+
+export const preloaderContainer = document.querySelector('.preloader');
+
+export const apiBaseUrl = "https://mesto.nomoreparties.co/v1/cohort-59";
+export const apiToken = "bae80771-0801-41af-a64f-417707c2f376";

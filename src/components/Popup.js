@@ -1,7 +1,7 @@
 class Popup {
-  constructor(popupContainer) {
-    this._popupContainer = popupContainer;
-    this._button = this._popupContainer.querySelector('.modal__button_action_close');
+  constructor(popupSelector) {
+    this._popupContainer = document.querySelector(popupSelector);
+    this._buttonClose = this._popupContainer.querySelector('.modal__button_action_close');
     this._handleEscClose = this._handleEscClose.bind(this)
   }
 
@@ -16,7 +16,7 @@ class Popup {
   }
 
   setEventListeners() {
-    this._button.addEventListener('click', () => this.close());
+    this._buttonClose.addEventListener('click', () => this.close());
     this._popupContainer.addEventListener('mousedown', (evn) => (evn.target === evn.currentTarget) ? this.close() : null);
   }
 

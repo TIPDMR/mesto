@@ -2,6 +2,13 @@
 @import url(../vendor/normalize.css);
 @import url(../vendor/fonts/fonts.css);
 
+/*Preloader*/
+@import url(../blocks/preloader/preloader.css);
+@import url(../blocks/preloader/__text/preloader__text.css);
+@import url(../blocks/preloader/__text-words/preloader__text-words.css);
+@import url(../blocks/preloader/_hidden/preloader_hidden.css);
+
+
 /*Page*/
 @import url(../blocks/page/page.css);
 @import url(../blocks/page/__header/page__header.css);
@@ -28,6 +35,7 @@
 @import url(../blocks/profile/__button/profile__button.css);
 @import url(../blocks/profile/__button/_action/profile__button_action_add.css);
 @import url(../blocks/profile/__button/_action/profile__button_action_edit.css);
+@import url(../blocks/profile/__button/_action/profile__button_action_edit-avatar.css);
 @import url(../blocks/profile/__button/_margin/profile__button_margin_bottom.css);
 
 /*Photo Gallery*/
@@ -35,8 +43,9 @@
 @import url(../blocks/photo-gallery/__items/photo-gallery__items.css);
 @import url(../blocks/photo-gallery/__image/photo-gallery__image.css);
 @import url(../blocks/photo-gallery/__title/photo-gallery__title.css);
-@import url(../blocks/photo-gallery/__figure/photo-gallery__figure.css);
+@import url(../blocks/photo-gallery/__card/photo-gallery__card.css);
 @import url(../blocks/photo-gallery/__figcaption/photo-gallery__figcaption.css);
+@import url(../blocks/photo-gallery/__like-container/photo-gallery__like-container.css);
 @import url(../blocks/photo-gallery/__button/photo-gallery__button.css);
 @import url(../blocks/photo-gallery/__button/_action/photo-gallery__button_action_like.css);
 @import url(../blocks/photo-gallery/__button/_action/photo-gallery__button_action_trash.css);
@@ -52,6 +61,7 @@
 @import url(../blocks/modal/__button/_disabled/modal__button_disabled.css);
 @import url(../blocks/modal/__title/modal__title.css);
 @import url(../blocks/modal/__form/modal__form.css);
+@import url(../blocks/modal/__form-confirm/modal__form-confirm.css);
 @import url(../blocks/modal/__input/modal__input.css);
 @import url(../blocks/modal/__input/_type/modal__input_type_error.css);
 @import url(../blocks/modal/input-error/modal__input-error.css);

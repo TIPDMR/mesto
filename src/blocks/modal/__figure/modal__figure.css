@@ -1,8 +1,5 @@
 .modal__figure {
   margin: 0;
-  max-width: 75vw;
-  max-height: 75vh;
-  min-width: 282px;
   display: flex;
   flex-direction: column;
 }
