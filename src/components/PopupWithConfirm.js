@@ -19,13 +19,6 @@ class PopupWithConfirm extends Popup {
     this._handleSubmitForm = handleSubmitForm;
   }
 
-  close() {
-    super.close();
-    this._formContainer.reset();
-  }
 
-  open() {
-    super.open();
-  }
 }
 export default PopupWithConfirm
