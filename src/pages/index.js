@@ -28,6 +28,7 @@ const formValidatorProfileAvatar = new FormValidator(formValidationConfig, modal
  */
 const userInfo = new UserInfo({nameSelector: profileNameSelector, aboutSelector: profileAboutSelector, avatarSelector: profileAvatarSelector});
 
+
 /**
  * Добавление карточки
  * на страницу
@@ -55,12 +56,14 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
 const popupWitchImage = new PopupWithImage(modalZoomInSelector);
 popupWitchImage.setEventListeners();
 
+
 /**
  * Модальное окно
  * подтверждения удаления карточки
  */
 const popupWithConfirm = new PopupWithConfirm(modalFormConfirm);
 popupWithConfirm.setEventListeners();
+
 
 /**
  * Создание карточки
@@ -101,7 +104,6 @@ function createCard(id, name, src, likes, ownerId, userId) {
  * Форма для редактирования
  * названия и описания профиля
  */
-
 const popupWithFormProfile = new PopupWithForm({
   handleSubmitForm: (inputsValue) => {
     const textBefore = popupWithFormProfile._buttonElement.textContent;
@@ -125,6 +127,7 @@ const handleButtonClickProfileEdit = () => {
   popupWithFormProfile.open();
 }
 buttonOpenModalProfileEdit.addEventListener('click', handleButtonClickProfileEdit);
+
 
 /**
  * Модальное окно
@@ -154,6 +157,7 @@ buttonOpenModalImageAdd.addEventListener('click', () => {
   popupWithFormCardAdd.open()
 });
 
+
 /**
  * Модальное окно
  * Форма для обновления
@@ -180,6 +184,7 @@ buttonOpenModalProfileEditAvatar.addEventListener('click', () => {
   popupWithFormProfileAvatar.open()
 
 });
+
 
 /**
  * Включение валидации форм

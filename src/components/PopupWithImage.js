@@ -7,7 +7,6 @@ class PopupWithImage extends Popup {
     this._figCaption = this._popupContainer.querySelector('.modal__figcaption');
   }
 
-
   open(name, src) {
     this._figCaption.textContent = name;
     this._image.src = src;
