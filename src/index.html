@@ -45,9 +45,9 @@
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Редактировать профиль</h2>
     <form class="modal__form modal__form-profile" name="profile__form" action="#" novalidate>
-      <input class="modal__input modal__input_name_name" type="text" name="user-name" id="user-name" minlength="2" maxlength="40" required>
+      <input class="modal__input modal__input_name_name" pattern="^((?!\s{2}).)*$" type="text" name="user-name" id="user-name" minlength="2" maxlength="40" required>
       <span class="modal__input-error user-name-error"></span>
-      <input class="modal__input modal__input_name_about" type="text" name="user-about" id="user-about" minlength="2" maxlength="200" required>
+      <input class="modal__input modal__input_name_about" pattern="^((?!\s{2}).)*$" type="text" name="user-about" id="user-about" minlength="2" maxlength="200" required>
       <span class="modal__input-error user-about-error"></span>
       <button type="submit" class="modal__button modal__button_action_save ">Сохранить</button>
     </form>
@@ -59,7 +59,7 @@
     <button type="button" class="modal__button modal__button_action_close"></button>
     <h2 class="modal__title">Новое место</h2>
     <form class="modal__form modal__form-card-add" name="form-card-add" action="#" novalidate>
-      <input class="modal__input modal__input_name_card-name" type="text" name="card-name" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
+      <input class="modal__input modal__input_name_card-name" pattern="^((?!\s{2}).)*$" type="text" name="card-name" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
       <span class="modal__input-error card-name-error"></span>
       <input class="modal__input modal__input_name_card-img" name="card-img" id="card-img" placeholder="Ссылка на картинку" type="url" required>
       <span class="modal__input-error card-img-error"></span>

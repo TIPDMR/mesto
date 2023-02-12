@@ -15,10 +15,9 @@ class PopupWithConfirm extends Popup {
     });
   }
 
-  setHandleSubmitForm(handleSubmitForm){
+  setHandleSubmitForm(handleSubmitForm) {
     this._handleSubmitForm = handleSubmitForm;
   }
-
-
 }
+
 export default PopupWithConfirm

@@ -50,7 +50,7 @@ class Card {
     this._element = null;
   };
 
-  toggleButtonLike(){
+  toggleButtonLike() {
     this._buttonLike.classList.toggle('photo-gallery__button_active');
   }
 

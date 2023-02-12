@@ -1,5 +1,5 @@
 class UserInfo {
-  constructor({ nameSelector,  aboutSelector,  avatarSelector}) {
+  constructor({nameSelector, aboutSelector, avatarSelector}) {
     this._nameContainer = document.querySelector(nameSelector);
     this._aboutContainer = document.querySelector(aboutSelector);
     this._avatarContainer = document.querySelector(avatarSelector);
