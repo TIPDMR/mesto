@@ -2,128 +2,128 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Уникальные места Хакасии для туризма и отдыха</title>
-  <meta name="description" content="Живописные места Хакасии на любой вкус, от озер до курортов">
-  <link rel="icon" type="image/x-icon" href="<%=require('./images/favicon_io/favicon.ico')%>">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Уникальные места Хакасии для туризма и отдыха</title>
+    <meta name="description" content="Живописные места Хакасии на любой вкус, от озер до курортов">
+    <link rel="icon" type="image/x-icon" href="<%=require('./images/favicon_io/favicon.ico')%>">
 </head>
 <body class="page">
 
 <header class="header page__header">
-  <img src="<%=require('./images/logo/header__logo.svg')%>" alt="Логотип `Mesto Russia`" class="header__logo">
+    <img src="<%=require('./images/logo/header__logo.svg')%>" alt="Логотип `Mesto Russia`" class="header__logo">
 </header>
 
 <main class="content page__content">
 
-  <section class="profile content__profile">
-    <div class="profile__avatar profile__avatar_type_circle">
-      <img src="<%=require('./images/profile/ava.jpg')%>" alt="Аватар" class="profile__img">
-      <button type="button" class="profile__button profile__button_action_edit-avatar"></button>
-    </div>
-    <div class="profile__info">
-      <h1 class="profile__name">Родная Хакасия</h1>
-      <button type="button" class="profile__button profile__button_action_edit profile__button_margin_bottom"></button>
-      <p class="profile__about">Солнечный Край</p>
-    </div>
-    <button type="button" class="profile__button profile__button_action_add"></button>
-  </section>
+    <section class="profile content__profile">
+        <div class="profile__avatar profile__avatar_type_circle">
+            <img src="<%=require('./images/profile/ava.jpg')%>" alt="Аватар" class="profile__img">
+            <button type="button" class="profile__button profile__button_action_edit-avatar"></button>
+        </div>
+        <div class="profile__info">
+            <h1 class="profile__name">Родная Хакасия</h1>
+            <button type="button" class="profile__button profile__button_action_edit profile__button_margin_bottom"></button>
+            <p class="profile__about">Солнечный Край</p>
+        </div>
+        <button type="button" class="profile__button profile__button_action_add"></button>
+    </section>
 
-  <section class="photo-gallery content__photo-gallery" aria-label="Фото Галерея">
-    <ul class="photo-gallery__items"></ul>
-  </section>
+    <section class="photo-gallery content__photo-gallery" aria-label="Фото Галерея">
+        <ul class="photo-gallery__items"></ul>
+    </section>
 
 </main>
 
 <footer class="footer page__footer">
-  <p class="footer__copy">&copy; 2023 Республика Хакасия</p>
+    <p class="footer__copy">&copy; 2023 Республика Хакасия</p>
 </footer>
 
 <div class="modal modal_form_profile" tabindex="-1" role="dialog">
-  <div class="modal__container" role="document">
-    <button type="button" class="modal__button modal__button_action_close"></button>
-    <h2 class="modal__title">Редактировать профиль</h2>
-    <form class="modal__form modal__form-profile" name="profile__form" action="#" novalidate>
-      <input class="modal__input modal__input_name_name" type="text" name="user-name" id="user-name" minlength="2" maxlength="40" required>
-      <span class="modal__input-error user-name-error"></span>
-      <input class="modal__input modal__input_name_about" type="text" name="user-about" id="user-about" minlength="2" maxlength="200" required>
-      <span class="modal__input-error user-about-error"></span>
-      <button type="submit" class="modal__button modal__button_action_save ">Сохранить</button>
-    </form>
-  </div>
+    <div class="modal__container" role="document">
+        <button type="button" class="modal__button modal__button_action_close"></button>
+        <h2 class="modal__title">Редактировать профиль</h2>
+        <form class="modal__form modal__form-profile" name="profile__form" action="#" novalidate>
+            <input class="modal__input modal__input_name_name" pattern="^((?!\s{2}).)*$" type="text" name="user-name" id="user-name" minlength="2" maxlength="40" required>
+            <span class="modal__input-error user-name-error"></span>
+            <input class="modal__input modal__input_name_about" pattern="^((?!\s{2}).)*$" type="text" name="user-about" id="user-about" minlength="2" maxlength="200" required>
+            <span class="modal__input-error user-about-error"></span>
+            <button type="submit" class="modal__button modal__button_action_save ">Сохранить</button>
+        </form>
+    </div>
 </div>
 
 <div class="modal modal_form_img-add" tabindex="-1" role="dialog">
-  <div class="modal__container" role="document">
-    <button type="button" class="modal__button modal__button_action_close"></button>
-    <h2 class="modal__title">Новое место</h2>
-    <form class="modal__form modal__form-card-add" name="form-card-add" action="#" novalidate>
-      <input class="modal__input modal__input_name_card-name" type="text" name="card-name" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
-      <span class="modal__input-error card-name-error"></span>
-      <input class="modal__input modal__input_name_card-img" name="card-img" id="card-img" placeholder="Ссылка на картинку" type="url" required>
-      <span class="modal__input-error card-img-error"></span>
-      <button type="submit" class="modal__button modal__button_action_save">Создать</button>
-    </form>
-  </div>
+    <div class="modal__container" role="document">
+        <button type="button" class="modal__button modal__button_action_close"></button>
+        <h2 class="modal__title">Новое место</h2>
+        <form class="modal__form modal__form-card-add" name="form-card-add" action="#" novalidate>
+            <input class="modal__input modal__input_name_card-name" pattern="^((?!\s{2}).)*$" type="text" name="card-name" id="card-name" placeholder="Название" minlength="2" maxlength="30" required>
+            <span class="modal__input-error card-name-error"></span>
+            <input class="modal__input modal__input_name_card-img" name="card-img" id="card-img" placeholder="Ссылка на картинку" type="url" required>
+            <span class="modal__input-error card-img-error"></span>
+            <button type="submit" class="modal__button modal__button_action_save">Создать</button>
+        </form>
+    </div>
 </div>
 
 <div class="modal modal_zoom_in" tabindex="-1" role="dialog">
-  <div class="modal__img-container" role="document">
-    <button type="button" class="modal__button modal__button_action_close"></button>
-    <figure class="modal__figure">
-      <img class="modal__img" alt="">
-      <figcaption class="modal__figcaption"></figcaption>
-    </figure>
-  </div>
+    <div class="modal__img-container" role="document">
+        <button type="button" class="modal__button modal__button_action_close"></button>
+        <figure class="modal__figure">
+            <img class="modal__img" alt="">
+            <figcaption class="modal__figcaption"></figcaption>
+        </figure>
+    </div>
 </div>
 <div class="modal modal_form_confirm" tabindex="-1" role="dialog">
-  <div class="modal__container" role="document">
-    <button type="button" class="modal__button modal__button_action_close"></button>
-    <h2 class="modal__title">Вы уверены?</h2>
-    <form class="modal__form modal__form-confirm" name="form-confirm" action="#" novalidate>
-      <button type="submit" class="modal__button modal__button_action_save">Да</button>
-    </form>
-  </div>
+    <div class="modal__container" role="document">
+        <button type="button" class="modal__button modal__button_action_close"></button>
+        <h2 class="modal__title">Вы уверены?</h2>
+        <form class="modal__form modal__form-confirm" name="form-confirm" action="#" novalidate>
+            <button type="submit" class="modal__button modal__button_action_save">Да</button>
+        </form>
+    </div>
 </div>
 
 <div class="modal modal_form_avatar-edit" tabindex="-1" role="dialog">
-  <div class="modal__container" role="document">
-    <button type="button" class="modal__button modal__button_action_close"></button>
-    <h2 class="modal__title">Обновить аватар</h2>
-    <form class="modal__form modal__form-avatar-edit" name="form-avatar-edit" action="#" novalidate>
-      <input class="modal__input modal__input_name_avatar-link" type="url" name="avatar-link" id="avatar-link" placeholder="https://somewebsite.com/someimage.jpg" required>
-      <span class="modal__input-error avatar-link-error"></span>
-      <button type="submit" class="modal__button modal__button_action_save">Сохранить</button>
-    </form>
-  </div>
+    <div class="modal__container" role="document">
+        <button type="button" class="modal__button modal__button_action_close"></button>
+        <h2 class="modal__title">Обновить аватар</h2>
+        <form class="modal__form modal__form-avatar-edit" name="form-avatar-edit" action="#" novalidate>
+            <input class="modal__input modal__input_name_avatar-link" type="url" name="avatar-link" id="avatar-link" placeholder="https://somewebsite.com/someimage.jpg" required>
+            <span class="modal__input-error avatar-link-error"></span>
+            <button type="submit" class="modal__button modal__button_action_save">Сохранить</button>
+        </form>
+    </div>
 </div>
 <template id="gallery-template">
-  <li class="photo-gallery__element">
-    <article class="photo-gallery__card">
-      <img class="photo-gallery__image" alt="">
-      <div class="photo-gallery__figcaption">
-        <h2 class="photo-gallery__title"></h2>
-        <div class="photo-gallery__like-container">
-          <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
-          <span class="photo-gallery__likes-number"></span>
-        </div>
-      </div>
-      <button type="button" class="photo-gallery__button photo-gallery__button_action_trash"></button>
-    </article>
-  </li>
+    <li class="photo-gallery__element">
+        <article class="photo-gallery__card">
+            <img class="photo-gallery__image" alt="">
+            <div class="photo-gallery__figcaption">
+                <h2 class="photo-gallery__title"></h2>
+                <div class="photo-gallery__like-container">
+                    <button type="button" class="photo-gallery__button photo-gallery__button_action_like"></button>
+                    <span class="photo-gallery__likes-number"></span>
+                </div>
+            </div>
+            <button type="button" class="photo-gallery__button photo-gallery__button_action_trash"></button>
+        </article>
+    </li>
 </template>
 <div class="preloader">
-  <div class="preloader__text">
-    <span class="preloader__text-words">З</span>
-    <span class="preloader__text-words">А</span>
-    <span class="preloader__text-words">Г</span>
-    <span class="preloader__text-words">Р</span>
-    <span class="preloader__text-words">У</span>
-    <span class="preloader__text-words">З</span>
-    <span class="preloader__text-words">К</span>
-    <span class="preloader__text-words">А</span>
-  </div>
+    <div class="preloader__text">
+        <span class="preloader__text-words">З</span>
+        <span class="preloader__text-words">А</span>
+        <span class="preloader__text-words">Г</span>
+        <span class="preloader__text-words">Р</span>
+        <span class="preloader__text-words">У</span>
+        <span class="preloader__text-words">З</span>
+        <span class="preloader__text-words">К</span>
+        <span class="preloader__text-words">А</span>
+    </div>
 </div>
 
 </body>

@@ -53,13 +53,8 @@ class FormValidator {
         }
     };
 
-    _clearSpace(str) {
-        return str.replace(/\s{2,}/g, ' ').trimStart();
-    }
-
     _setEventListeners(inputElement) {
         inputElement.addEventListener('input', () => {
-            inputElement.value = this._clearSpace(inputElement.value);
             this._changeButtonState();
             this._checkInputValidity(inputElement);
         });
