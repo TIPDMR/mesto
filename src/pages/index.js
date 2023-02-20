@@ -1,5 +1,5 @@
 import './index.css';
-import {apiBaseUrl, apiToken, buttonOpenModalImageAdd, buttonOpenModalProfileEdit, formValidationConfig, modalGallerySelector, modalGalleryImageFormSelector, modalProfileSelector, modalProfileFormSelector, modalZoomInSelector, preloaderContainer, profileAboutSelector, profileAvatarSelector, profileNameSelector, galleryContainer, modalFormConfirm, buttonOpenModalProfileEditAvatar, modalProfileAvatarSelector, modalProfileAvatarFormSelector,} from '../utils/constants.js';
+import {apiBaseUrl, apiToken, buttonOpenModalImageAdd, buttonOpenModalProfileEdit, formValidationConfig, modalGallerySelector, modalGalleryImageFormSelector, modalProfileSelector, modalProfileFormSelector, modalZoomInSelector, preloaderContainer, profileAboutSelector, profileAvatarSelector, profileNameSelector, galleryContainer, modalFormConfirmSelector, buttonOpenModalProfileEditAvatar, modalProfileAvatarSelector, modalProfileAvatarFormSelector,} from '../utils/constants.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import FormValidator from '../components/FormValidator.js';
@@ -24,7 +24,14 @@ const formValidatorGallery = new FormValidator(formValidationConfig, modalGaller
 const formValidatorProfileAvatar = new FormValidator(formValidationConfig, modalProfileAvatarFormSelector);
 
 /**
- * Название и описание сайта
+ * Включение валидации форм
+ */
+formValidatorProfile.enableValidation()
+formValidatorGallery.enableValidation()
+formValidatorProfileAvatar.enableValidation()
+
+/**
+ * Данные пользователя
  */
 const userInfo = new UserInfo({nameSelector: profileNameSelector, aboutSelector: profileAboutSelector, avatarSelector: profileAvatarSelector});
 
@@ -61,7 +68,7 @@ popupWitchImage.setEventListeners();
  * Модальное окно
  * подтверждения удаления карточки
  */
-const popupWithConfirm = new PopupWithConfirm(modalFormConfirm);
+const popupWithConfirm = new PopupWithConfirm(modalFormConfirmSelector);
 popupWithConfirm.setEventListeners();
 
 
@@ -73,20 +80,11 @@ function createCard(id, name, src, likes, ownerId, userId) {
     _id: id, name: name, link: src, likes: likes, ownerId: ownerId, userId: userId,
   }, {
     handleCardClick: () => popupWitchImage.open(name, src), handleCardClickLike: (card) => {
-      if (card.isLikeActive()) {
-        api.delLike(card._id)
-          .then((res) => {
-            card.setLikesNumber(res.likes.length || '');
-            card.toggleButtonLike();
-          }).catch((err) => console.log(err))
-      } else {
-        api.setLike(card._id)
-          .then((res) => {
-            card.setLikesNumber(res.likes.length || '');
-            card.toggleButtonLike();
-          })
-          .catch((err) => console.log(err))
-      }
+      const like = (card.isLikeActive()) ? api.delLike(card._id) : api.setLike(card._id);
+      like.then((res) => {
+        card.setLikesNumber(res.likes.length || '');
+        card.toggleButtonLike();
+      }).catch((err) => console.log(err));
     }, handleCardClickTrash: (card) => {
       popupWithConfirm.setHandleSubmitForm(() => {
         api.delCard(card._id)
@@ -185,11 +183,4 @@ buttonOpenModalProfileEditAvatar.addEventListener('click', () => {
 
 });
 
-
-/**
- * Включение валидации форм
- */
-formValidatorProfile.enableValidation()
-formValidatorGallery.enableValidation()
-formValidatorProfileAvatar.enableValidation()
 

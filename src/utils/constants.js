@@ -19,7 +19,7 @@ export const profileAvatarSelector = '.profile__img';
 export const modalProfileAvatarSelector = '.modal_form_avatar-edit';
 export const modalProfileAvatarFormSelector = '.modal__form-avatar-edit';
 
-export const modalFormConfirm = '.modal_form_confirm';
+export const modalFormConfirmSelector = '.modal_form_confirm';
 export const modalProfileSelector = '.modal_form_profile';
 export const modalProfileFormSelector = '.modal__form-profile';
 
